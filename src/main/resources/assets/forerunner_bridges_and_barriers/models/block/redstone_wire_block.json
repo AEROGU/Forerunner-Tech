@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "forerunner_bridges_and_barriers:blocks/cable_apagado_down",
+    "up": "forerunner_bridges_and_barriers:blocks/cable_apagado_up",
+    "north": "forerunner_bridges_and_barriers:blocks/conector_de_cable",
+    "east": "forerunner_bridges_and_barriers:blocks/cable_apagado_right",
+    "south": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
+    "west": "forerunner_bridges_and_barriers:blocks/cable_apagado_left",
+    "particle": "forerunner_bridges_and_barriers:blocks/cable_apagado_down"
+  }
+}

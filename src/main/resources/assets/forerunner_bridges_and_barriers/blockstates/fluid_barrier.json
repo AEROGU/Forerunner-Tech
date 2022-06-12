@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "forerunner_bridges_and_barriers:block/fluid_barrier"
+    },
+    "facing=east": {
+      "model": "forerunner_bridges_and_barriers:block/fluid_barrier",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "forerunner_bridges_and_barriers:block/fluid_barrier",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "forerunner_bridges_and_barriers:block/fluid_barrier",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "forerunner_metal_hd",
+        "1": "light_section_animated",
+        "missing": "default"
+      },
+      "name": "default"
+    }
+  }
+}

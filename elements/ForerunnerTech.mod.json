@@ -1,0 +1,11 @@
+{
+  "_fv": 28,
+  "_type": "tab",
+  "definition": {
+    "name": "Forerunner Tech",
+    "icon": {
+      "value": "CUSTOM:LightBridgeEmitter"
+    },
+    "showSearch": true
+  }
+}

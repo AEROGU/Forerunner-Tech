@@ -1,0 +1,8 @@
+{
+  "parent": "forerunner_bridges_and_barriers:custom/lightwire",
+  "textures": {
+    "all": "forerunner_bridges_and_barriers:blocks/light_section_animated",
+    "particle": "forerunner_bridges_and_barriers:blocks/light_section_animated",
+    "missing": "forerunner_bridges_and_barriers:blocks/light_section_animated"
+  }
+}

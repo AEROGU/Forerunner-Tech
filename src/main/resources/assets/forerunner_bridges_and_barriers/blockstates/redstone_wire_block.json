@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block"
+    },
+    "facing=east": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block",
+      "y": 270
+    },
+    "facing=up": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block",
+      "x": 270
+    },
+    "facing=down": {
+      "model": "forerunner_bridges_and_barriers:block/redstone_wire_block",
+      "x": 90
+    }
+  }
+}

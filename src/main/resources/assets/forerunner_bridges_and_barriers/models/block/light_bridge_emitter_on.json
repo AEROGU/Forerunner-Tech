@@ -1,0 +1,10 @@
+{
+  "parent": "forerunner_bridges_and_barriers:custom/light_bridge_emitter_on",
+  "textures": {
+    "all": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
+    "particle": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
+    "0": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
+    "1": "forerunner_bridges_and_barriers:blocks/light_section_animated",
+    "missing": "forerunner_bridges_and_barriers:blocks/default"
+  }
+}
