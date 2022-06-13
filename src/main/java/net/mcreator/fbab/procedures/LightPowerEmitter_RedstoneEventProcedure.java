@@ -2,16 +2,23 @@ package net.mcreator.fbab.procedures;
 
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.fbab.network.ForerunnerBridgesAndBarriersModVariables;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
+import net.mcreator.fbab.EmmiterUtilities;
 
 import java.util.Map;
 
 public class LightPowerEmitter_RedstoneEventProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
+		double limit = 0;
+		BlockState light = Blocks.AIR.defaultBlockState();
+		limit = ForerunnerBridgesAndBarriersModVariables.lightBridgeMaxLength;
+		light = ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get().defaultBlockState();
 		if (blockstate.getBlock() == ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER.get()
 				&& (world instanceof Level _lvl_isPow ? _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z)) : false)) {
 			{
@@ -28,7 +35,7 @@ public class LightPowerEmitter_RedstoneEventProcedure {
 				}
 				world.setBlock(_bp, _bs, 3);
 			}
-			EmitLightWireProcedure.execute(world, x, y, z);
+			EmmiterUtilities.emmit(world, x, y, z, limit, light);
 		} else if (blockstate.getBlock() == ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON.get()
 				&& !(world instanceof Level _lvl_isPow ? _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z)) : false)) {
 			{
@@ -45,7 +52,7 @@ public class LightPowerEmitter_RedstoneEventProcedure {
 				}
 				world.setBlock(_bp, _bs, 3);
 			}
-			RemoveLightWireProcedure.execute(world, x, y, z);
+			EmmiterUtilities.emmit(world, x, y, z, limit, null);
 		}
 	}
 }

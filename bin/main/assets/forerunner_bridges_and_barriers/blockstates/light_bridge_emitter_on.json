@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "forerunner_bridges_and_barriers:block/light_bridge_emitter_on"
+    },
+    "facing=east": {
+      "model": "forerunner_bridges_and_barriers:block/light_bridge_emitter_on",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "forerunner_bridges_and_barriers:block/light_bridge_emitter_on",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "forerunner_bridges_and_barriers:block/light_bridge_emitter_on",
+      "y": 270
+    }
+  }
+}

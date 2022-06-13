@@ -253,35 +253,6 @@
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
-      "name": "EmitLightWire",
-      "type": "procedure",
-      "sortid": 25,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "emit_light_wire",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightWire_and_PowerReceiver"
-    },
-    {
       "name": "LightPowerEmitterON",
       "type": "block",
       "sortid": 27,
@@ -324,33 +295,12 @@
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
-      "name": "RemoveLightWire",
-      "type": "procedure",
-      "sortid": 29,
+      "name": "EmmiterUtilities",
+      "type": "code",
+      "sortid": 31,
       "compiles": true,
-      "locked_code": false,
-      "registry_name": "remove_light_wire",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightWire_and_PowerReceiver"
+      "locked_code": true,
+      "registry_name": "emmiter_utilities"
     }
   ],
   "variable_elements": [
@@ -389,7 +339,7 @@
   ],
   "language_map": {
     "en_us": {
-      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard Light Bridge Emitter",
+      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Light Bridge Emitter",
       "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
       "subtitles.energy_bridge_connected": "",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",

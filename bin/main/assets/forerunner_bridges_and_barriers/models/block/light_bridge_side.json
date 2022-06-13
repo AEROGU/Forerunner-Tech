@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_glass_pane_side",
+  "textures": {
+    "edge": "forerunner_bridges_and_barriers:blocks/lightsection",
+    "pane": "forerunner_bridges_and_barriers:blocks/lightsection"
+  }
+}
