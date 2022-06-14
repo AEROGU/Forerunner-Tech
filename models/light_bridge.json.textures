@@ -2,7 +2,10 @@
   "mappings": {
     "default": {
       "map": {
-        "0": "light_section_animated"
+        "0": "light_section_animated",
+        "1": "light_section_down_animated",
+        "2": "light_section_left_animated",
+        "3": "light_section_right_animated"
       },
       "name": "default"
     }

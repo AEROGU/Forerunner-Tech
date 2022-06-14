@@ -3,6 +3,9 @@
   "textures": {
     "all": "forerunner_bridges_and_barriers:blocks/lightsection",
     "particle": "forerunner_bridges_and_barriers:blocks/lightsection",
-    "0": "forerunner_bridges_and_barriers:blocks/light_section_animated"
+    "0": "forerunner_bridges_and_barriers:blocks/light_section_animated",
+    "1": "forerunner_bridges_and_barriers:blocks/light_section_down_animated",
+    "2": "forerunner_bridges_and_barriers:blocks/light_section_left_animated",
+    "3": "forerunner_bridges_and_barriers:blocks/light_section_right_animated"
   }
 }

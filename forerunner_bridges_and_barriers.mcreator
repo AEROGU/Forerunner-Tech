@@ -339,9 +339,9 @@
   ],
   "language_map": {
     "en_us": {
-      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Light Bridge Emitter",
-      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
       "subtitles.energy_bridge_connected": "",
+      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
+      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Light Bridge Emitter",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Light Bridge Emitter ON",
       "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",
@@ -358,8 +358,8 @@
       "block.forerunner_bridges_and_barriers.power_receiver": "Power Receiver"
     },
     "es_mx": {
-      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de energía",
       "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
+      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de energía",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Emisor de puente de energía ENCENDIDO",
       "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",

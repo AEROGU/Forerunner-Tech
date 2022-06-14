@@ -12,7 +12,7 @@
     "customModelName": "lightwire:default",
     "rotationMode": 2,
     "emissiveRendering": true,
-    "displayFluidOverlay": false,
+    "displayFluidOverlay": true,
     "itemTexture": "",
     "particleTexture": "",
     "tintType": "No tint",

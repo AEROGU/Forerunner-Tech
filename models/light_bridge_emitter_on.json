@@ -1,9 +1,12 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "Light bridge emitter:forerunner_metal_hd",
-		"1": "Light bridge emitter:lightSection",
-		"particle": "Light bridge emitter:forerunner_metal_hd"
+		"0": "Modelos editables:forerunner_metal_hd",
+		"1": "Modelos editables:lightSectionUp",
+		"2": "Modelos editables:lightSectionDown",
+		"3": "Modelos editables:lightSectionLeft",
+		"4": "Modelos editables:lightSectionRight",
+		"particle": "Modelos editables:forerunner_metal_hd"
 	},
 	"elements": [
 		{
@@ -14,7 +17,7 @@
 				"east": {"uv": [0, 0, 2, 5], "texture": "#0"},
 				"south": {"uv": [0, 5.4375, 16, 10.4375], "texture": "#0"},
 				"west": {"uv": [0, 0, 2, 5], "texture": "#0"},
-				"up": {"uv": [0, 14.0625, 16, 16.0625], "rotation": 180, "texture": "#0"},
+				"up": {"uv": [0, 13.9375, 16, 15.9375], "rotation": 180, "texture": "#0"},
 				"down": {"uv": [0, 4.8125, 16, 6.8125], "rotation": 180, "texture": "#0"}
 			}
 		},
@@ -46,12 +49,10 @@
 			"from": [0, 8, 0],
 			"to": [16, 9, 14],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 1], "texture": "#1"},
-				"east": {"uv": [0, 0, 15, 1], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 1], "texture": "#1"},
-				"west": {"uv": [0, 0, 15, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 15, 1], "texture": "#3"},
+				"west": {"uv": [0, 0, 15, 1], "texture": "#4"},
 				"up": {"uv": [0, 0, 16, 15], "texture": "#1"},
-				"down": {"uv": [0, 0, 16, 15], "texture": "#1"}
+				"down": {"uv": [0, 0, 16, 15], "texture": "#2"}
 			}
 		}
 	],
@@ -95,5 +96,7 @@
 			"origin": [0, 0, 0],
 			"color": 0,
 			"children": [0, 1, 2]
-		}, 3]
+		},
+		3
+	]
 }
