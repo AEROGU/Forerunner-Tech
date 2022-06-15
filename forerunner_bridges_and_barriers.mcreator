@@ -86,70 +86,12 @@
       "path": "~/LightBridges"
     },
     {
-      "name": "RemoveLightBridge",
-      "type": "procedure",
-      "sortid": 12,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "remove_light_bridge",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightBridges"
-    },
-    {
       "name": "LightBridgeEmitterRecipe",
       "type": "recipe",
       "sortid": 13,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_recipe",
-      "path": "~/LightBridges"
-    },
-    {
-      "name": "LBEONDestroyedByExplosionEvt",
-      "type": "procedure",
-      "sortid": 14,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "lbeon_destroyed_by_explosion_evt",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
       "path": "~/LightBridges"
     },
     {
@@ -301,6 +243,140 @@
       "compiles": true,
       "locked_code": true,
       "registry_name": "emmiter_utilities"
+    },
+    {
+      "name": "LightBarrierEmitter",
+      "type": "block",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_emitter",
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightBarrierEmitterOn",
+      "type": "block",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_emitter_on",
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightBarrierEmitterRecipe",
+      "type": "recipe",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_emitter_recipe",
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightBridgeEmitterRecipe2",
+      "type": "recipe",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_bridge_emitter_recipe_2",
+      "path": "~/LightBridges"
+    },
+    {
+      "name": "LightBarrier",
+      "type": "block",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier",
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LBrERedstoneEvt",
+      "type": "procedure",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "l_br_e_redstone_evt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "CheckBarrierAndBridgePosition",
+      "type": "procedure",
+      "sortid": 42,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_barrier_and_bridge_position",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OnActivatedEmitterDestroyed",
+      "type": "procedure",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_activated_emitter_destroyed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -321,28 +397,31 @@
       "subtitle": "Energy bridge activation"
     },
     {
-      "name": "energy_bridge_emitter_destroyed",
-      "files": [
-        "251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts"
-      ],
-      "category": "master",
-      "subtitle": "Energy bridge emitter destroyed"
-    },
-    {
       "name": "energy_bridge_deactivation",
       "files": [
         "49664__ejfortin__dual-energy-daggers-1"
       ],
       "category": "master",
       "subtitle": "Energy bridge deactivation"
+    },
+    {
+      "name": "energy_bridge_emitter_destroyed",
+      "files": [
+        "251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts"
+      ],
+      "category": "master",
+      "subtitle": "Energy bridge emitter destroyed"
     }
   ],
   "language_map": {
     "en_us": {
-      "subtitles.energy_bridge_connected": "",
-      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Light Bridge Emitter",
+      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
+      "subtitles.energy_bridge_connected": "",
+      "block.forerunner_bridges_and_barriers.light_barrier_emitter": "Light Barrier Emitter",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
+      "block.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Light Barrier Emitter ON",
+      "block.forerunner_bridges_and_barriers.light_barrier": "Light bridge",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Light Bridge Emitter ON",
       "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",
       "block.forerunner_bridges_and_barriers.fluid_barrier": "Fluid Barrier",
@@ -358,9 +437,12 @@
       "block.forerunner_bridges_and_barriers.power_receiver": "Power Receiver"
     },
     "es_mx": {
-      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de energía",
+      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
+      "block.forerunner_bridges_and_barriers.light_barrier_emitter": "Light Bridge Emitter",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
+      "block.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Light Bridge Emitter ON",
+      "block.forerunner_bridges_and_barriers.light_barrier": "Light bridge",
       "block.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Emisor de puente de energía ENCENDIDO",
       "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",
       "block.forerunner_bridges_and_barriers.fluid_barrier": "Fluid Barrier",
@@ -394,6 +476,10 @@
       },
       {
         "name": "RedstonWire",
+        "children": []
+      },
+      {
+        "name": "LightBarriers",
         "children": []
       }
     ]

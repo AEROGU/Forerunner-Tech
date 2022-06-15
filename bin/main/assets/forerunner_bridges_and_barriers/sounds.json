@@ -9,22 +9,22 @@
       }
     ]
   },
-  "energy_bridge_emitter_destroyed": {
-    "category": "master",
-    "subtitle": "subtitles.energy_bridge_emitter_destroyed",
-    "sounds": [
-      {
-        "name": "forerunner_bridges_and_barriers:251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts",
-        "stream": false
-      }
-    ]
-  },
   "energy_bridge_deactivation": {
     "category": "master",
     "subtitle": "subtitles.energy_bridge_deactivation",
     "sounds": [
       {
         "name": "forerunner_bridges_and_barriers:49664__ejfortin__dual-energy-daggers-1",
+        "stream": false
+      }
+    ]
+  },
+  "energy_bridge_emitter_destroyed": {
+    "category": "master",
+    "subtitle": "subtitles.energy_bridge_emitter_destroyed",
+    "sounds": [
+      {
+        "name": "forerunner_bridges_and_barriers:251431__onlytheghosts__fusion-gun-flash0-by-onlytheghosts",
         "stream": false
       }
     ]

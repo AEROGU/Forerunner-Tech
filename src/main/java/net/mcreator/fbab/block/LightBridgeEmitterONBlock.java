@@ -26,7 +26,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
@@ -44,8 +44,8 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.fbab.procedures.OnActivatedEmitterDestroyedProcedure;
 import net.mcreator.fbab.procedures.LBERedstoneEvtProcedure;
-import net.mcreator.fbab.procedures.LBEONDestroyedByExplosionEvtProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
 
 import java.util.Random;
@@ -53,7 +53,7 @@ import java.util.Random;
 public class LightBridgeEmitterONBlock extends Block implements SimpleWaterloggedBlock
 
 {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightBridgeEmitterONBlock() {
@@ -91,6 +91,10 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 				return Shapes.or(box(0, 8, 0, 16, 9, 16), box(0, 6, 0, 3, 11, 16)).move(offset.x, offset.y, offset.z);
 			case WEST :
 				return Shapes.or(box(0, 8, 0, 16, 9, 16), box(13, 6, 0, 16, 11, 16)).move(offset.x, offset.y, offset.z);
+			case UP :
+				return Shapes.or(box(0, 0, 8, 16, 16, 9), box(0, 0, 6, 16, 3, 11)).move(offset.x, offset.y, offset.z);
+			case DOWN :
+				return Shapes.or(box(0, 0, 7, 16, 16, 8), box(0, 13, 5, 16, 16, 10)).move(offset.x, offset.y, offset.z);
 		}
 	}
 
@@ -110,7 +114,7 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, flag);
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag);
 	}
 
 	@Override
@@ -185,14 +189,14 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 	@Override
 	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
 		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-		LBEONDestroyedByExplosionEvtProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		OnActivatedEmitterDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		return retval;
 	}
 
 	@Override
 	public void wasExploded(Level world, BlockPos pos, Explosion e) {
 		super.wasExploded(world, pos, e);
-		LBEONDestroyedByExplosionEvtProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		OnActivatedEmitterDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	@OnlyIn(Dist.CLIENT)

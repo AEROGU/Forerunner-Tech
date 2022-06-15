@@ -1,0 +1,13 @@
+{
+  "group": "forerunner",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "forerunner_bridges_and_barriers:light_bridge_emitter"
+    }
+  ],
+  "result": {
+    "item": "forerunner_bridges_and_barriers:light_barrier_emitter",
+    "count": 1
+  }
+}

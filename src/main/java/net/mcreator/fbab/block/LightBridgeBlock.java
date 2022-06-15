@@ -24,7 +24,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LevelAccessor;
@@ -42,7 +42,7 @@ import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
 public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 
 {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightBridgeBlock() {
@@ -89,6 +89,10 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
 			case WEST :
 				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
+			case UP :
+				return box(0, 0, 8, 16, 16, 9).move(offset.x, offset.y, offset.z);
+			case DOWN :
+				return box(0, 0, 7, 16, 16, 8).move(offset.x, offset.y, offset.z);
 		}
 	}
 
@@ -108,7 +112,7 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, flag);
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag);
 	}
 
 	@Override

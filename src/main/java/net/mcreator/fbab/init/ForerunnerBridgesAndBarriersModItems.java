@@ -36,6 +36,10 @@ public class ForerunnerBridgesAndBarriersModItems {
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
 	public static final RegistryObject<Item> LIGHT_POWER_EMITTER_ON = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON,
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
+	public static final RegistryObject<Item> LIGHT_BARRIER_EMITTER = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER,
+			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
+	public static final RegistryObject<Item> LIGHT_BARRIER_EMITTER_ON = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER_ON, null);
+	public static final RegistryObject<Item> LIGHT_BARRIER = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER, null);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

@@ -21,19 +21,21 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
 import net.mcreator.fbab.procedures.LBERedstoneEvtProcedure;
+import net.mcreator.fbab.procedures.CheckBarrierAndBridgePositionProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
 
 import java.util.List;
@@ -42,7 +44,7 @@ import java.util.Collections;
 public class LightBridgeEmitterBlock extends Block implements SimpleWaterloggedBlock
 
 {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightBridgeEmitterBlock() {
@@ -74,6 +76,10 @@ public class LightBridgeEmitterBlock extends Block implements SimpleWaterloggedB
 				return box(0, 6, 0, 3, 11, 16).move(offset.x, offset.y, offset.z);
 			case WEST :
 				return box(13, 6, 0, 16, 11, 16).move(offset.x, offset.y, offset.z);
+			case UP :
+				return box(0, 0, 6, 16, 3, 11).move(offset.x, offset.y, offset.z);
+			case DOWN :
+				return box(0, 13, 5, 16, 16, 10).move(offset.x, offset.y, offset.z);
 		}
 	}
 
@@ -93,7 +99,7 @@ public class LightBridgeEmitterBlock extends Block implements SimpleWaterloggedB
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, flag);
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag);
 	}
 
 	@Override
@@ -135,6 +141,12 @@ public class LightBridgeEmitterBlock extends Block implements SimpleWaterloggedB
 		if (world.getBestNeighborSignal(pos) > 0) {
 			LBERedstoneEvtProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}
+	}
+
+	@Override
+	public void setPlacedBy(Level world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
+		super.setPlacedBy(world, pos, blockstate, entity, itemstack);
+		CheckBarrierAndBridgePositionProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), entity);
 	}
 
 	@OnlyIn(Dist.CLIENT)

@@ -10,7 +10,7 @@
     "textureBack": "",
     "renderType": 2,
     "customModelName": "light_bridge_emitter:default",
-    "rotationMode": 1,
+    "rotationMode": 2,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -123,6 +123,9 @@
     "fluidRestrictions": [],
     "onBlockAdded": {
       "name": "LBERedstoneEvt"
+    },
+    "onBlockPlayedBy": {
+      "name": "CheckBarrierAndBridgePosition"
     },
     "onRedstoneOn": {
       "name": "LBERedstoneEvt"

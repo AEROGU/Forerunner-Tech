@@ -20,10 +20,10 @@ public class ForerunnerBridgesAndBarriersModSounds {
 	static {
 		REGISTRY.put(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_activation"),
 				new SoundEvent(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_activation")));
-		REGISTRY.put(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_emitter_destroyed"),
-				new SoundEvent(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_emitter_destroyed")));
 		REGISTRY.put(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_deactivation"),
 				new SoundEvent(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_deactivation")));
+		REGISTRY.put(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_emitter_destroyed"),
+				new SoundEvent(new ResourceLocation("forerunner_bridges_and_barriers", "energy_bridge_emitter_destroyed")));
 	}
 
 	@SubscribeEvent

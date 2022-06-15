@@ -6,10 +6,14 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.core.Direction;
@@ -60,75 +64,124 @@ public class EmmiterUtilities {
 	 * @param block The block to set.
 	 * @param facing The facing of the block.
 	 */
-	public static void setBlock (LevelAccessor world, double x, double y, double z, BlockState block, Direction facing) {
-		Direction _dir = facing == null ? Direction.NORTH : facing;
-		BlockPos _pos = new BlockPos(x, y, z);
-		BlockState _bs = block;
-		Property<?> _property = _bs.getBlock().getStateDefinition().getProperty("facing");
-		if (_property instanceof DirectionProperty _dp && _dp.getPossibleValues().contains(_dir)) {
-			world.setBlock(_pos, _bs.setValue(_dp, _dir), 3);
+	// public static void setBlock (LevelAccessor world, BlockPos blockPos, BlockState block, Direction facing) {
+	// 	Direction _dir = facing == null ? Direction.NORTH : facing;
+	// 	BlockPos _pos = blockPos;
+	// 	BlockState _bs = block;
+	// 	Property<?> _property = _bs.getBlock().getStateDefinition().getProperty("facing");
+	// 	if (_property instanceof DirectionProperty _dp && _dp.getPossibleValues().contains(_dir)) {
+	// 		world.setBlock(_pos, _bs.setValue(_dp, _dir), 3);
+	// 	} else {
+	// 		_property = _bs.getBlock().getStateDefinition().getProperty("axis");
+	// 		if (_property instanceof EnumProperty _ap && _ap.getPossibleValues().contains(_dir.getAxis())) {
+	// 			world.setBlock(_pos, _bs.setValue(_ap, _dir.getAxis()), 3);
+	// 		} else {
+	// 			// The block does not have a facing property (like Air), so just put it
+	// 			world.setBlock(_pos, _bs, 3);
+	// 		}
+	// 	}
+	// }
+
+	public static BlockState setFacing(BlockState inputBlockState, Direction facing) {
+		Property<?> _property = inputBlockState.getBlock().getStateDefinition().getProperty("facing");
+		if (_property instanceof DirectionProperty _dp && _dp.getPossibleValues().contains(facing)) {
+			return inputBlockState.setValue(_dp, facing);
 		} else {
-			_property = _bs.getBlock().getStateDefinition().getProperty("axis");
-			if (_property instanceof EnumProperty _ap && _ap.getPossibleValues().contains(_dir.getAxis())) {
-				world.setBlock(_pos, _bs.setValue(_ap, _dir.getAxis()), 3);
+			_property = inputBlockState.getBlock().getStateDefinition().getProperty("axis");
+			if (_property instanceof EnumProperty _ap && _ap.getPossibleValues().contains(facing.getAxis())) {
+				return inputBlockState.setValue(_ap, facing.getAxis());
 			} else {
-				// The block does not have a facing property (like Air), so just put it
-				world.setBlock(_pos, _bs, 3);
+				// The block does not have a facing property (like Air), so just return the same input block state
+				return inputBlockState;
 			}
 		}
 	}
 
+	public static BlockState setWaterLogged(BlockState blockState, boolean waterLogged) {
+		// return blockState.setValue(BlockStateProperties.WATERLOGGED, waterLogged); // Puede dar error si no tiene propiedad WATERLOGGED
+		Property<?> property = blockState.getBlock().getStateDefinition().getProperty("waterlogged");
+		if (property instanceof BooleanProperty _prop) {
+			return blockState.setValue(_prop, waterLogged);
+		}
+		return blockState;
+	}
+
 	public static void emmit(LevelAccessor world, double x, double y, double z, double limit, BlockState block) {
+		boolean goingToRemoveBlocks = false;
+		BlockState AIR = Blocks.AIR.defaultBlockState();
+		BlockState WATER = Blocks.WATER.defaultBlockState();
 		if (block == null) {
-			block = Blocks.AIR.defaultBlockState();
+			block = AIR;
+			goingToRemoveBlocks = true;
 		}
 		double increment = 0;
 		double placedBlocks = 0;
 		double curPositionInCurAxis = 0;
 		BlockPos emmiterPos = new BlockPos(x, y, z);
 		Direction emmiterDirection = getDirection(world, emmiterPos);
-		BlockState emmiter = world.getBlockState(emmiterPos);
+		// BlockState emmiter = world.getBlockState(emmiterPos);
 
-		// block.rotate(world, block.posit, emmiterDirection)
-
-		// Set block face direction same as emmiter face direction
-		// Property<?> emmiterDirectonProperty = emmiter.getBlock().getStateDefinition().getProperty("facing");
-		// if (emmiterDirectonProperty instanceof DirectionProperty facingProperty && facingProperty.getPossibleValues().contains(emmiterDirection)) {
-		// 	block.setValue(facingProperty, emmiterDirection);
-		// } else {
-		// 	emmiterDirectonProperty = emmiter.getBlock().getStateDefinition().getProperty("axis");
-		// 	if (emmiterDirectonProperty instanceof EnumProperty axisPropery && axisPropery.getPossibleValues().contains(emmiterDirection.getAxis()))
-		// 		block.setValue(axisPropery, emmiterDirection.getAxis());
-		// }
-
-		// block.setValue(block.getBlock(), Direction.UP);
+		BlockPos curBlockPos;
 		
 		if (emmiterDirection == Direction.UP || emmiterDirection == Direction.DOWN) { // Axis: Y
 			increment = emmiterDirection == Direction.UP ? 1 : -1; // UP = +Y, DOWN = -Y
 			curPositionInCurAxis = y + increment;
-			while (placedBlocks <= limit && !world.getBlockState(new BlockPos(x, curPositionInCurAxis, z)).canOcclude()) {
-				// world.setBlock(new BlockPos(x, curPositionInCurAxis, z), block, 3);
-				setBlock(world, x, curPositionInCurAxis, z, block, emmiterDirection);
+			curBlockPos = new BlockPos(x, curPositionInCurAxis, z);
+			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
+				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+					world.setBlock(curBlockPos, WATER, 3);
+				} else {
+					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+						// setBlock(world, curBlockPos, block, emmiterDirection, true);
+						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
+					} else {
+						// setBlock(world, curBlockPos, block, emmiterDirection);
+						world.setBlock(curBlockPos, setFacing(block, emmiterDirection), 3);
+					}
+				}
 				placedBlocks++;
 				curPositionInCurAxis += increment;
+				curBlockPos = new BlockPos(x, curPositionInCurAxis, z);
 			}
 		} else if (emmiterDirection == Direction.NORTH || emmiterDirection == Direction.SOUTH) { // Axis: Z
 			increment = emmiterDirection == Direction.SOUTH ? 1 : -1; // SOUTH = +Z, NORTH = -Z
 			curPositionInCurAxis = z + increment;
-			while (placedBlocks <= limit && !world.getBlockState(new BlockPos(x, y, curPositionInCurAxis)).canOcclude()) {
-				// world.setBlock(new BlockPos(x, y, curPositionInCurAxis), block, 3);
-				setBlock(world, x, y, curPositionInCurAxis, block, emmiterDirection);
+			curBlockPos = new BlockPos(x, y, curPositionInCurAxis);
+			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
+				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+					world.setBlock(curBlockPos, WATER, 3);
+				} else {
+					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+						// setBlock(world, curBlockPos, block, emmiterDirection, true);
+						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
+					} else {
+						// setBlock(world, curBlockPos, block, emmiterDirection);
+						world.setBlock(curBlockPos, setFacing(block, emmiterDirection), 3);
+					}
+				}
 				placedBlocks++;
 				curPositionInCurAxis += increment;
+				curBlockPos = new BlockPos(x, y, curPositionInCurAxis);
 			}
 		} else if (emmiterDirection == Direction.EAST || emmiterDirection == Direction.WEST) { // Axis: X
 			increment = emmiterDirection == Direction.EAST ? 1 : -1; // EAST = +X, WEST = -X
 			curPositionInCurAxis = x + increment;
-			while (placedBlocks <= limit && !world.getBlockState(new BlockPos(curPositionInCurAxis, y, z)).canOcclude()) {
-				// world.setBlock(new BlockPos(curPositionInCurAxis, y, z), block, 3);
-				setBlock(world, curPositionInCurAxis, y, z, block, emmiterDirection);
+			curBlockPos = new BlockPos(curPositionInCurAxis, y, z);
+			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
+				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+					world.setBlock(curBlockPos, WATER, 3);
+				} else {
+					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+						// setBlock(world, curBlockPos, block, emmiterDirection, true);
+						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
+					} else {
+						// setBlock(world, curBlockPos, block, emmiterDirection);
+						world.setBlock(curBlockPos, setFacing(block, emmiterDirection), 3);
+					}
+				}
 				placedBlocks++;
 				curPositionInCurAxis += increment;
+				curBlockPos = new BlockPos(curPositionInCurAxis, y, z);
 			}
 		}
 	}

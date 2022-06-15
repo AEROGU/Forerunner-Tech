@@ -10,7 +10,7 @@
     "textureBack": "",
     "renderType": 2,
     "customModelName": "light_bridge_emitter_on:default",
-    "rotationMode": 1,
+    "rotationMode": 2,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -131,10 +131,10 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onDestroyedByPlayer": {
-      "name": "LBEONDestroyedByExplosionEvt"
+      "name": "OnActivatedEmitterDestroyed"
     },
     "onDestroyedByExplosion": {
-      "name": "LBEONDestroyedByExplosionEvt"
+      "name": "OnActivatedEmitterDestroyed"
     },
     "onRedstoneOff": {
       "name": "LBERedstoneEvt"

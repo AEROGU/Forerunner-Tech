@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "Light bridge emitter:forerunner_metal_hd",
-		"particle": "Light bridge emitter:forerunner_metal_hd"
+		"0": "Modelos editables:forerunner_metal_hd",
+		"particle": "Modelos editables:forerunner_metal_hd"
 	},
 	"elements": [
 		{
@@ -44,20 +44,20 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"rotation": [-2, 123, -80],
-			"translation": [-4, 3.75, 4.25]
+			"rotation": [146, 0, 23],
+			"translation": [6.25, 3, 6.5]
 		},
 		"thirdperson_lefthand": {
 			"rotation": [16, 123, -80],
 			"translation": [-4, 2.25, 5.25]
 		},
 		"firstperson_righthand": {
-			"rotation": [-50, -180, 59],
+			"rotation": [-56, -180, -16],
 			"translation": [4, 4, 1]
 		},
 		"firstperson_lefthand": {
-			"rotation": [-50, -180, 59],
-			"translation": [4, 4, 1]
+			"rotation": [-47, -180, -11],
+			"translation": [5, 3.25, 1]
 		},
 		"ground": {
 			"rotation": [0, 50, 90],
@@ -69,8 +69,8 @@
 			"scale": [1.1, 1.1, 1.1]
 		},
 		"head": {
-			"rotation": [0, 90, 90],
-			"translation": [-14.5, 6, 0]
+			"rotation": [90, 90, 90],
+			"translation": [-14.5, 0, -4.75]
 		},
 		"fixed": {
 			"translation": [0, 0, -8]

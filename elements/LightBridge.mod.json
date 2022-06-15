@@ -10,7 +10,7 @@
     "textureBack": "",
     "renderType": 2,
     "customModelName": "light_bridge:default",
-    "rotationMode": 1,
+    "rotationMode": 2,
     "emissiveRendering": true,
     "displayFluidOverlay": true,
     "itemTexture": "",
