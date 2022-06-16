@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
@@ -20,6 +21,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
+import net.minecraft.commands.CommandSourceStack;
 
 import net.mcreator.fbab.network.ForerunnerBridgesAndBarriersModVariables;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
@@ -33,6 +35,10 @@ public class EmmiterUtilities {
 	public EmmiterUtilities() {
 	}
 
+	/**
+	 * Easy access to the mod `LOGGER` instance
+	 * so if the modname is changed, only one line needs to be changed.
+	 */
 	public static final Logger LOGGER = ForerunnerBridgesAndBarriersMod.LOGGER;
 
 	/**
@@ -49,10 +55,6 @@ public class EmmiterUtilities {
 	// 		ForerunnerBridgesAndBarriersMod.LOGGER.info(direction.getName());
 	// 	}
 	// }
-
-	public static Logger LOGGER() {
-		return ForerunnerBridgesAndBarriersMod.LOGGER;
-	}
 
 	/**
 	 * Set a block in the `world` at the given position with the given `facing`.
@@ -82,6 +84,13 @@ public class EmmiterUtilities {
 	// 	}
 	// }
 
+	/**
+	 * Sets the 'facing' or 'axis' (as appropriate) property of the given BlockState
+	 * and returns the modified BlockState.
+	 * @param inputBlockState
+	 * @param facing
+	 * @return BlockState with the 'facing' or 'axis' property set.
+	 */
 	public static BlockState setFacing(BlockState inputBlockState, Direction facing) {
 		Property<?> _property = inputBlockState.getBlock().getStateDefinition().getProperty("facing");
 		if (_property instanceof DirectionProperty _dp && _dp.getPossibleValues().contains(facing)) {
@@ -97,6 +106,12 @@ public class EmmiterUtilities {
 		}
 	}
 
+	/**
+	 * Sets the `blockState` 'waterlogged' property and returns the modified BlockState.
+	 * @param blockState
+	 * @param waterLogged
+	 * @return BlockState with the 'waterlogged' property set.
+	 */
 	public static BlockState setWaterLogged(BlockState blockState, boolean waterLogged) {
 		// return blockState.setValue(BlockStateProperties.WATERLOGGED, waterLogged); // Puede dar error si no tiene propiedad WATERLOGGED
 		Property<?> property = blockState.getBlock().getStateDefinition().getProperty("waterlogged");
@@ -106,6 +121,16 @@ public class EmmiterUtilities {
 		return blockState;
 	}
 
+	/**
+	 * Set a line of blocks in the `world` with the sourceblock facing direction until a solid block is meet or
+	 * the `limit` is reached.
+	 * @param world
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param limit
+	 * @param block
+	 */
 	public static void emmit(LevelAccessor world, double x, double y, double z, double limit, BlockState block) {
 		boolean goingToRemoveBlocks = false;
 		BlockState AIR = Blocks.AIR.defaultBlockState();
@@ -187,7 +212,7 @@ public class EmmiterUtilities {
 	}
 	
 	/**
-	 * Returns the
+	 * Returns the direction where the block at `pos` is facing.
 	 * @param world
 	 * @param pos
 	 * @return Direction
@@ -205,21 +230,33 @@ public class EmmiterUtilities {
 		return Direction.NORTH;
 	}
 
-
-	public static void executeCommand(LevelAccessor world, double x, double y, double z, String command) {
+	/**
+	 * Execute a minecreaft command
+	 * @param world The world
+	 * @param x The x coordinate
+	 * @param y The y coordinate
+	 * @param z The z coordinate
+	 * @param command The command
+	 * @param withOutput | true = print output to console, false = don't print output to console
+	 */
+	public static void executeCommand(LevelAccessor world, double x, double y, double z, String command, boolean withOutput) {
 		if (world instanceof ServerLevel _level) {
-			_level.getServer().getCommands().performCommand(
-				new CommandSourceStack(
-					CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4,
-					"", new TextComponent(""), _level.getServer(), null
-				).withSuppressedOutput(),
-				command
+
+			CommandSourceStack commandSourceStack = new CommandSourceStack(
+				CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4,
+				"", new TextComponent(""), _level.getServer(), null
 			);
+
+			if (!withOutput) {
+				commandSourceStack = commandSourceStack.withSuppressedOutput();
+			}
+
+			_level.getServer().getCommands().performCommand(commandSourceStack, command);
 		}
 	}
 
 	/**
-	 * 
+	 * Execute the command /fill ...
 	 * @param world
 	 * @param x x-coordinate
 	 * @param y y-coordinate
@@ -242,8 +279,7 @@ public class EmmiterUtilities {
 			x1 + " " + y1 + " " + z1 + " " +
 			x2 + " " + y2 + " " + z2 + " " +
 			blockName + "[facing=" + facing + "]";
-		executeCommand(world, x, y, z, command);
+		executeCommand(world, x, y, z, command, false);
 		// fill -267 71 90 -272 71 90 forerunner_bridges_and_barriers:light_power_emitter[facing=up]
 	}
-	
 }

@@ -43,14 +43,14 @@
     ],
     "name": "Light Bridge Emitter ON",
     "specialInfo": [],
-    "hardness": 50.0,
-    "resistance": 20.0,
+    "hardness": 55.0,
+    "resistance": 55.0,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
       "value": "No creative tab entry"
     },
-    "destroyTool": "pickaxe",
+    "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
     },
@@ -105,7 +105,7 @@
     },
     "luminance": 14,
     "unbreakable": false,
-    "breakHarvestLevel": 3,
+    "breakHarvestLevel": 4,
     "spawnParticles": true,
     "particleToSpawn": {
       "value": "ELECTRIC_SPARK"

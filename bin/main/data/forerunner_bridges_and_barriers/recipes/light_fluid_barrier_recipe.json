@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:glass"
+    },
+    "1": {
+      "item": "minecraft:glass"
+    },
+    "2": {
+      "item": "minecraft:glass"
+    },
+    "3": {
+      "item": "minecraft:prismarine"
+    },
+    "4": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "5": {
+      "item": "minecraft:prismarine"
+    },
+    "6": {
+      "item": "minecraft:iron_ingot"
+    },
+    "7": {
+      "item": "minecraft:repeater"
+    },
+    "8": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "forerunner_bridges_and_barriers:light_fluid_barrier_emitter",
+    "count": 1
+  }
+}

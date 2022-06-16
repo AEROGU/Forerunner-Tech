@@ -39,7 +39,7 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "CUSTOM:ForerunnerTech"
+      "value": "No creative tab entry"
     },
     "destroyTool": "Not specified",
     "customDrop": {
@@ -66,7 +66,7 @@
       "value": ""
     },
     "offsetType": "NONE",
-    "aiPathNodeType": "WATER_BORDER",
+    "aiPathNodeType": "BLOCKED",
     "beaconColorModifier": {
       "value": -536480781,
       "falpha": 0.0

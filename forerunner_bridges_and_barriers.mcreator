@@ -57,35 +57,6 @@
       "path": "~/LightBridges"
     },
     {
-      "name": "CreateLightBridge",
-      "type": "procedure",
-      "sortid": 11,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "create_light_bridge",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightBridges"
-    },
-    {
       "name": "LightBridgeEmitterRecipe",
       "type": "recipe",
       "sortid": 13,
@@ -377,6 +348,80 @@
           }
         ]
       }
+    },
+    {
+      "name": "PowerReceiverRecipe",
+      "type": "recipe",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "power_receiver_recipe",
+      "path": "~/LightWire_and_PowerReceiver"
+    },
+    {
+      "name": "LightPowerEmitterRecipe",
+      "type": "recipe",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_power_emitter_recipe",
+      "path": "~/LightWire_and_PowerReceiver"
+    },
+    {
+      "name": "LightFluidBarrierEmitter",
+      "type": "block",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_fluid_barrier_emitter",
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "LightFluidBarrierEmitterOn",
+      "type": "block",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_fluid_barrier_emitter_on",
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "FBERedstoneEvt",
+      "type": "procedure",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fbe_redstone_evt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "LightFluidBarrierRecipe",
+      "type": "recipe",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_fluid_barrier_recipe",
+      "path": "~/LightFluidBarrier"
     }
   ],
   "variable_elements": [
@@ -416,8 +461,8 @@
   "language_map": {
     "en_us": {
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Light Bridge Emitter",
-      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
-      "subtitles.energy_bridge_connected": "",
+      "subtitles.energy_bridge_connected": "Hard light bridge emitter connected",
+      "subtitles.energy_bridge_emitter_destroyed": "Hard light bridge emitter destroyed",
       "block.forerunner_bridges_and_barriers.light_barrier_emitter": "Light Barrier Emitter",
       "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
       "block.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Light Barrier Emitter ON",
@@ -426,36 +471,16 @@
       "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",
       "block.forerunner_bridges_and_barriers.fluid_barrier": "Fluid Barrier",
       "block.forerunner_bridges_and_barriers.light_wire": "Light Wire",
-      "subtitles.energy_bridge_disconnected": "Energy bridge disconnected",
-      "subtitles.energy_bridge_activation": "Energy bridge activation",
-      "subtitles.energy_bridge_deactivation": "Energy bridge deactivation",
+      "subtitles.energy_bridge_disconnected": "Hard light bridge disconnected",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on": "Redstone Wire Block",
+      "subtitles.energy_bridge_activation": "Hard light bridge activation",
+      "subtitles.energy_bridge_deactivation": "Hard light bridge deactivation",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter": "Redstone Wire Block",
       "block.forerunner_bridges_and_barriers.redstone_wireon": "Redstone Wire Block",
       "block.forerunner_bridges_and_barriers.light_bridge": "Light bridge",
       "itemGroup.tabforerunner_tech": "Forerunner Tech",
-      "block.forerunner_bridges_and_barriers.power_receiver_on": "Power Receiver ON",
       "block.forerunner_bridges_and_barriers.light_power_emitter": "Light Power Emitter",
-      "block.forerunner_bridges_and_barriers.power_receiver": "Power Receiver"
-    },
-    "es_mx": {
-      "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de energía",
-      "subtitles.energy_bridge_emitter_destroyed": "Energy bridge emitter destroyed",
-      "block.forerunner_bridges_and_barriers.light_barrier_emitter": "Light Bridge Emitter",
-      "block.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone Wire Block",
-      "block.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Light Bridge Emitter ON",
-      "block.forerunner_bridges_and_barriers.light_barrier": "Light bridge",
-      "block.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Emisor de puente de energía ENCENDIDO",
-      "block.forerunner_bridges_and_barriers.light_power_emitter_on": "Light Power Emitter",
-      "block.forerunner_bridges_and_barriers.fluid_barrier": "Fluid Barrier",
-      "block.forerunner_bridges_and_barriers.light_wire": "Light Wire",
-      "subtitles.energy_bridge_disconnected": "Energy bridge disconnected",
-      "subtitles.energy_bridge_activation": "Energy bridge activation",
-      "subtitles.energy_bridge_deactivation": "Energy bridge deactivation",
-      "subtitles.energu_bridge_connected": "",
-      "block.forerunner_bridges_and_barriers.redstone_wireon": "Redstone Wire Block",
-      "block.forerunner_bridges_and_barriers.light_bridge": "Puente de energía",
-      "itemGroup.tabforerunner_tech": "Forerunner Tech",
       "block.forerunner_bridges_and_barriers.power_receiver_on": "Power Receiver ON",
-      "block.forerunner_bridges_and_barriers.light_power_emitter": "Light Power Emitter",
       "block.forerunner_bridges_and_barriers.power_receiver": "Power Receiver"
     }
   },
@@ -487,11 +512,11 @@
   "workspaceSettings": {
     "modid": "forerunner_bridges_and_barriers",
     "modName": "Forerunner Bridges and Barriers",
-    "version": "1.0.0",
-    "description": "Puentes y barreras de luz como la tecnología forerunner de Halo",
+    "version": "1.0.0-alpha",
+    "description": "Puentes y barreras de luz dura como la tecnología forerunner de Halo",
     "author": "Arturo Enrique Rosas Gutiérrez",
     "websiteURL": "https://mcreator.net",
-    "license": "Academic Free License v3.0",
+    "license": "All Rights Reserved",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "requiredMods": [],

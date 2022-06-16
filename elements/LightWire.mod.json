@@ -34,12 +34,12 @@
     ],
     "name": "Light Wire",
     "specialInfo": [],
-    "hardness": 1.0,
-    "resistance": 10.0,
+    "hardness": 1000.0,
+    "resistance": 1.8E7,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
-      "value": "CUSTOM:ForerunnerTech"
+      "value": "No creative tab entry"
     },
     "destroyTool": "Not specified",
     "customDrop": {

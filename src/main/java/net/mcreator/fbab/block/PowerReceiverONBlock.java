@@ -22,7 +22,7 @@ import java.util.Collections;
 
 public class PowerReceiverONBlock extends Block {
 	public PowerReceiverONBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f).lightLevel(s -> 14)
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(5f, 10f).lightLevel(s -> 14)
 				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true));
 	}
 

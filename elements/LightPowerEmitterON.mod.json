@@ -11,7 +11,7 @@
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 4,
-    "emissiveRendering": false,
+    "emissiveRendering": true,
     "displayFluidOverlay": false,
     "itemTexture": "",
     "particleTexture": "",
@@ -34,8 +34,8 @@
     ],
     "name": "Light Power Emitter",
     "specialInfo": [],
-    "hardness": 1.0,
-    "resistance": 10.0,
+    "hardness": 55.0,
+    "resistance": 55.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
@@ -96,7 +96,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 4,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"

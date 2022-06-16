@@ -21,6 +21,8 @@ import net.mcreator.fbab.block.PowerReceiverBlock;
 import net.mcreator.fbab.block.LightWireBlock;
 import net.mcreator.fbab.block.LightPowerEmitterONBlock;
 import net.mcreator.fbab.block.LightPowerEmitterBlock;
+import net.mcreator.fbab.block.LightFluidBarrierEmitterOnBlock;
+import net.mcreator.fbab.block.LightFluidBarrierEmitterBlock;
 import net.mcreator.fbab.block.LightBridgeEmitterONBlock;
 import net.mcreator.fbab.block.LightBridgeEmitterBlock;
 import net.mcreator.fbab.block.LightBridgeBlock;
@@ -50,6 +52,10 @@ public class ForerunnerBridgesAndBarriersModBlocks {
 	public static final RegistryObject<Block> LIGHT_BARRIER_EMITTER_ON = REGISTRY.register("light_barrier_emitter_on",
 			() -> new LightBarrierEmitterOnBlock());
 	public static final RegistryObject<Block> LIGHT_BARRIER = REGISTRY.register("light_barrier", () -> new LightBarrierBlock());
+	public static final RegistryObject<Block> LIGHT_FLUID_BARRIER_EMITTER = REGISTRY.register("light_fluid_barrier_emitter",
+			() -> new LightFluidBarrierEmitterBlock());
+	public static final RegistryObject<Block> LIGHT_FLUID_BARRIER_EMITTER_ON = REGISTRY.register("light_fluid_barrier_emitter_on",
+			() -> new LightFluidBarrierEmitterOnBlock());
 
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 	public static class ClientSideHandler {

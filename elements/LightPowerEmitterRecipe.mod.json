@@ -1,0 +1,46 @@
+{
+  "_fv": 28,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": "Blocks.GLASS"
+      },
+      {
+        "value": "Blocks.UNPOWERED_REPEATER"
+      },
+      {
+        "value": "Items.AMETHYST_SHARD"
+      },
+      {
+        "value": "Blocks.UNPOWERED_REPEATER"
+      },
+      {
+        "value": "Items.IRON_INGOT"
+      },
+      {
+        "value": "Items.GOLD_INGOT"
+      },
+      {
+        "value": "Items.IRON_INGOT"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:LightPowerEmitter"
+    },
+    "name": "light_power_emitter_recipe",
+    "namespace": "mod"
+  }
+}

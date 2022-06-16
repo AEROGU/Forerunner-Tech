@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[40,)"
-license="Academic Free License v3.0"
+license="All Rights Reserved"
 
 [[mods]]
 modId="forerunner_bridges_and_barriers"
@@ -10,7 +10,7 @@ credits="Created using mod maker MCreator - https://mcreator.net/about"
 displayURL="https://mcreator.net"
 authors="Arturo Enrique Rosas Gutiérrez"
 description='''
-Puentes y barreras de luz como la tecnología forerunner de Halo
+Puentes y barreras de luz dura como la tecnología forerunner de Halo
 '''
 
 [[dependencies.forerunner_bridges_and_barriers]]

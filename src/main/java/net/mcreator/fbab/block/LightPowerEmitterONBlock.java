@@ -28,7 +28,8 @@ public class LightPowerEmitterONBlock extends Block {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 
 	public LightPowerEmitterONBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f));
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(55f).hasPostProcess((bs, br, bp) -> true)
+				.emissiveRendering((bs, br, bp) -> true));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

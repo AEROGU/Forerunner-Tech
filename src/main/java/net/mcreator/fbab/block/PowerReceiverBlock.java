@@ -20,7 +20,7 @@ import java.util.Collections;
 
 public class PowerReceiverBlock extends Block {
 	public PowerReceiverBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f));
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(5f, 10f));
 	}
 
 	@Override

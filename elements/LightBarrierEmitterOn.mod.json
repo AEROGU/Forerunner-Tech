@@ -43,8 +43,8 @@
     ],
     "name": "Light Barrier Emitter ON",
     "specialInfo": [],
-    "hardness": 50.0,
-    "resistance": 20.0,
+    "hardness": 55.0,
+    "resistance": 55.0,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {

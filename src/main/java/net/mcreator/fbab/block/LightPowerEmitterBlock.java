@@ -15,7 +15,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
@@ -28,7 +30,7 @@ public class LightPowerEmitterBlock extends Block {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 
 	public LightPowerEmitterBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f));
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(5f, 10f).requiresCorrectToolForDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 
@@ -59,6 +61,13 @@ public class LightPowerEmitterBlock extends Block {
 	@Override
 	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
 		return true;
+	}
+
+	@Override
+	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
+		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
+			return tieredItem.getTier().getLevel() >= 2;
+		return false;
 	}
 
 	@Override

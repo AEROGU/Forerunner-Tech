@@ -34,16 +34,16 @@
     ],
     "name": "Light Barrier Emitter",
     "specialInfo": [],
-    "hardness": 1.0,
+    "hardness": 5.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
       "value": "CUSTOM:ForerunnerTech"
     },
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
-      "value": "CUSTOM:LightBarrierEmitter"
+      "value": ""
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -96,7 +96,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 2,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"

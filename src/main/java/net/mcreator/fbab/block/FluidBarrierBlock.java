@@ -91,7 +91,7 @@ public class FluidBarrierBlock extends Block {
 
 	@Override
 	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return BlockPathTypes.WATER_BORDER;
+		return BlockPathTypes.BLOCKED;
 	}
 
 	@Override

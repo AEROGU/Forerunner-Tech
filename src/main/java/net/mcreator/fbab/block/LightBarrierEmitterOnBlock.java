@@ -57,7 +57,7 @@ public class LightBarrierEmitterOnBlock extends Block implements SimpleWaterlogg
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightBarrierEmitterOnBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(50f, 20f).lightLevel(s -> 14).requiresCorrectToolForDrops()
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(55f).lightLevel(s -> 14).requiresCorrectToolForDrops()
 				.noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)
 				.noDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));

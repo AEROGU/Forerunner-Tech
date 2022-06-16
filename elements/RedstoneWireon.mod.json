@@ -39,7 +39,7 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "CUSTOM:ForerunnerTech"
+      "value": "No creative tab entry"
     },
     "destroyTool": "Not specified",
     "customDrop": {
@@ -59,8 +59,7 @@
     "isReplaceable": false,
     "canProvidePower": false,
     "emittedRedstonePower": {
-      "fixedValue": 15.0,
-      "name": "RedstoneWireBlockValue"
+      "fixedValue": 15.0
     },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {

@@ -2,8 +2,6 @@ package net.mcreator.fbab.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.sounds.SoundSource;
@@ -15,7 +13,6 @@ import net.mcreator.fbab.EmmiterUtilities;
 
 public class OnActivatedEmitterDestroyedProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
-		BlockState curBlock = Blocks.AIR.defaultBlockState();
 		double limit = 0;
 		if (world instanceof Level _level) {
 			if (!_level.isClientSide()) {

@@ -33,7 +33,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Mob;
@@ -57,9 +56,8 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightBridgeEmitterONBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(50f, 20f).lightLevel(s -> 14).requiresCorrectToolForDrops()
-				.noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)
-				.noDrops());
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(55f).lightLevel(s -> 14).noOcclusion()
+				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false).noDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 
@@ -149,13 +147,6 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 	@Override
 	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
 		return true;
-	}
-
-	@Override
-	public boolean canHarvestBlock(BlockState state, BlockGetter world, BlockPos pos, Player player) {
-		if (player.getInventory().getSelected().getItem() instanceof TieredItem tieredItem)
-			return tieredItem.getTier().getLevel() >= 3;
-		return false;
 	}
 
 	@Override
