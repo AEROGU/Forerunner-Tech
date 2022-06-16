@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Redstone Wire Block",
+    "name": "Soft light barrier emitter",
     "specialInfo": [
       "It emits an intelligent phase barrier",
       "it allows the passage of entities",
@@ -45,7 +45,7 @@
     "creativeTab": {
       "value": "CUSTOM:ForerunnerTech"
     },
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
       "value": ""
     },
@@ -100,7 +100,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 2,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"

@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Light Wire",
+    "name": "Light power",
     "specialInfo": [],
     "hardness": 1000.0,
     "resistance": 1.8E7,
@@ -52,11 +52,11 @@
     "canRedstoneConnect": false,
     "lightOpacity": 0,
     "material": {
-      "value": "AIR"
+      "value": "GLASS"
     },
     "tickRate": 10,
     "tickRandomly": false,
-    "isReplaceable": true,
+    "isReplaceable": false,
     "canProvidePower": false,
     "emittedRedstonePower": {
       "fixedValue": 15.0

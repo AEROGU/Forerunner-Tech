@@ -41,7 +41,7 @@
         "subtract": false
       }
     ],
-    "name": "Light Barrier Emitter ON",
+    "name": "Hard light barrier emitter: Activated",
     "specialInfo": [],
     "hardness": 55.0,
     "resistance": 55.0,

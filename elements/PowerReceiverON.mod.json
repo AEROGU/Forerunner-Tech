@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Power Receiver ON",
+    "name": "Light power receiver: Activated",
     "specialInfo": [],
     "hardness": 5.0,
     "resistance": 10.0,
@@ -41,9 +41,9 @@
     "creativeTab": {
       "value": "No creative tab entry"
     },
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:PowerReceiver"
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -63,7 +63,7 @@
     },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
-      "value": ""
+      "value": "CUSTOM:PowerReceiver"
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",

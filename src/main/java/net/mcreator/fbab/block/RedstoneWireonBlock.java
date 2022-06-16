@@ -25,7 +25,7 @@ public class RedstoneWireonBlock extends Block {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 
 	public RedstoneWireonBlock() {
-		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(1f, 10f));
+		super(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(5f, 10f));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 

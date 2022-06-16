@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Power Receiver",
+    "name": "Light power receiver",
     "specialInfo": [],
     "hardness": 5.0,
     "resistance": 10.0,
@@ -41,7 +41,7 @@
     "creativeTab": {
       "value": "CUSTOM:ForerunnerTech"
     },
-    "destroyTool": "Not specified",
+    "destroyTool": "pickaxe",
     "customDrop": {
       "value": ""
     },
@@ -96,7 +96,7 @@
     },
     "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 2,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"
@@ -121,6 +121,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockAdded": {
+      "name": "Update_PowerReceiver"
+    },
     "onNeighbourBlockChanges": {
       "name": "Update_PowerReceiver"
     },

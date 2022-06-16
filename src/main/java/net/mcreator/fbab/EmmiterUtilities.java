@@ -121,6 +121,27 @@ public class EmmiterUtilities {
 		return blockState;
 	}
 
+
+	public static boolean isNoReplaceableNonSolidBlock (Block block) {
+		Block[] noReplaceableNonSolidBlocks = {
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER_ON.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER_ON.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER.get(),
+			ForerunnerBridgesAndBarriersModBlocks.FLUID_BARRIER.get(),
+			ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get()
+		};
+
+		for (Block bl : noReplaceableNonSolidBlocks) {
+			if (bl == block) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * Set a line of blocks in the `world` with the sourceblock facing direction until a solid block is meet or
 	 * the `limit` is reached.
@@ -147,16 +168,23 @@ public class EmmiterUtilities {
 		// BlockState emmiter = world.getBlockState(emmiterPos);
 
 		BlockPos curBlockPos;
+		BlockState curBlockState;
 		
 		if (emmiterDirection == Direction.UP || emmiterDirection == Direction.DOWN) { // Axis: Y
 			increment = emmiterDirection == Direction.UP ? 1 : -1; // UP = +Y, DOWN = -Y
 			curPositionInCurAxis = y + increment;
 			curBlockPos = new BlockPos(x, curPositionInCurAxis, z);
-			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
-				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+			curBlockState = world.getBlockState(curBlockPos);
+			while (placedBlocks <= limit && !curBlockState.canOcclude()) {
+				if (goingToRemoveBlocks && (curBlockState).getFluidState().isSource()) {
 					world.setBlock(curBlockPos, WATER, 3);
 				} else {
-					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+
+					if (!goingToRemoveBlocks && isNoReplaceableNonSolidBlock(curBlockState.getBlock())) {
+						break;
+					}
+
+					if ((curBlockState).getBlock() == Blocks.WATER) {
 						// setBlock(world, curBlockPos, block, emmiterDirection, true);
 						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
 					} else {
@@ -167,16 +195,23 @@ public class EmmiterUtilities {
 				placedBlocks++;
 				curPositionInCurAxis += increment;
 				curBlockPos = new BlockPos(x, curPositionInCurAxis, z);
+				curBlockState = world.getBlockState(curBlockPos);
 			}
 		} else if (emmiterDirection == Direction.NORTH || emmiterDirection == Direction.SOUTH) { // Axis: Z
 			increment = emmiterDirection == Direction.SOUTH ? 1 : -1; // SOUTH = +Z, NORTH = -Z
 			curPositionInCurAxis = z + increment;
 			curBlockPos = new BlockPos(x, y, curPositionInCurAxis);
-			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
-				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+			curBlockState = world.getBlockState(curBlockPos);
+			while (placedBlocks <= limit && !curBlockState.canOcclude()) {
+				if (goingToRemoveBlocks && (curBlockState).getFluidState().isSource()) {
 					world.setBlock(curBlockPos, WATER, 3);
 				} else {
-					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+
+					if (!goingToRemoveBlocks && isNoReplaceableNonSolidBlock(curBlockState.getBlock())) {
+						break;
+					}
+
+					if ((curBlockState).getBlock() == Blocks.WATER) {
 						// setBlock(world, curBlockPos, block, emmiterDirection, true);
 						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
 					} else {
@@ -187,16 +222,23 @@ public class EmmiterUtilities {
 				placedBlocks++;
 				curPositionInCurAxis += increment;
 				curBlockPos = new BlockPos(x, y, curPositionInCurAxis);
+				curBlockState = world.getBlockState(curBlockPos);
 			}
 		} else if (emmiterDirection == Direction.EAST || emmiterDirection == Direction.WEST) { // Axis: X
 			increment = emmiterDirection == Direction.EAST ? 1 : -1; // EAST = +X, WEST = -X
 			curPositionInCurAxis = x + increment;
 			curBlockPos = new BlockPos(curPositionInCurAxis, y, z);
-			while (placedBlocks <= limit && !world.getBlockState(curBlockPos).canOcclude()) {
-				if (goingToRemoveBlocks && (world.getBlockState(curBlockPos)).getFluidState().isSource()) {
+			curBlockState = world.getBlockState(curBlockPos);
+			while (placedBlocks <= limit && !curBlockState.canOcclude()) {
+				if (goingToRemoveBlocks && (curBlockState).getFluidState().isSource()) {
 					world.setBlock(curBlockPos, WATER, 3);
 				} else {
-					if ((world.getBlockState(curBlockPos)).getBlock() == Blocks.WATER) {
+
+					if (!goingToRemoveBlocks && isNoReplaceableNonSolidBlock(curBlockState.getBlock())) {
+						break;
+					}
+
+					if ((curBlockState).getBlock() == Blocks.WATER) {
 						// setBlock(world, curBlockPos, block, emmiterDirection, true);
 						world.setBlock(curBlockPos, setFacing(setWaterLogged(block, true), emmiterDirection), 3);
 					} else {
@@ -207,6 +249,7 @@ public class EmmiterUtilities {
 				placedBlocks++;
 				curPositionInCurAxis += increment;
 				curBlockPos = new BlockPos(curPositionInCurAxis, y, z);
+				curBlockState = world.getBlockState(curBlockPos);
 			}
 		}
 	}

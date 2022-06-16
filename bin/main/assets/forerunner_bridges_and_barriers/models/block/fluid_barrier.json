@@ -1,7 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "forerunner_bridges_and_barriers:blocks/light_section_animated",
-    "particle": "forerunner_bridges_and_barriers:blocks/light_section_animated"
+    "down": "forerunner_bridges_and_barriers:blocks/light_section_down_animated",
+    "up": "forerunner_bridges_and_barriers:blocks/light_section_animated",
+    "north": "forerunner_bridges_and_barriers:blocks/lightsectionbasecolor",
+    "east": "forerunner_bridges_and_barriers:blocks/light_section_right_animated",
+    "south": "forerunner_bridges_and_barriers:blocks/lightsectionbasecolor",
+    "west": "forerunner_bridges_and_barriers:blocks/light_section_left_animated",
+    "particle": "forerunner_bridges_and_barriers:blocks/light_section_down_animated"
   }
 }

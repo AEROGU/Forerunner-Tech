@@ -30,8 +30,7 @@ public class ForerunnerBridgesAndBarriersModItems {
 	public static final RegistryObject<Item> REDSTONE_WIREON = block(ForerunnerBridgesAndBarriersModBlocks.REDSTONE_WIREON, null);
 	public static final RegistryObject<Item> LIGHT_POWER_EMITTER = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER,
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
-	public static final RegistryObject<Item> LIGHT_POWER_EMITTER_ON = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON,
-			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
+	public static final RegistryObject<Item> LIGHT_POWER_EMITTER_ON = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON, null);
 	public static final RegistryObject<Item> LIGHT_BARRIER_EMITTER = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER,
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
 	public static final RegistryObject<Item> LIGHT_BARRIER_EMITTER_ON = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER_EMITTER_ON, null);

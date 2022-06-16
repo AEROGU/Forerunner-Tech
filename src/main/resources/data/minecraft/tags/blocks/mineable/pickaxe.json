@@ -2,8 +2,11 @@
   "replace": false,
   "values": [
     "forerunner_bridges_and_barriers:light_bridge_emitter",
+    "forerunner_bridges_and_barriers:power_receiver_on",
+    "forerunner_bridges_and_barriers:power_receiver",
     "forerunner_bridges_and_barriers:light_power_emitter",
     "forerunner_bridges_and_barriers:light_barrier_emitter",
-    "forerunner_bridges_and_barriers:light_barrier_emitter_on"
+    "forerunner_bridges_and_barriers:light_barrier_emitter_on",
+    "forerunner_bridges_and_barriers:light_fluid_barrier_emitter"
   ]
 }

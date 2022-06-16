@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Redstone Wire Block",
+    "name": "Soft light barrier emitter: Activated",
     "specialInfo": [
       "It emits an intelligent phase barrier",
       "it allows the passage of entities",

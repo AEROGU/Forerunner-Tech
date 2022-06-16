@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.BlockGetter;
@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Collections;
 
 public class FluidBarrierBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 
 	public FluidBarrierBlock() {
 		super(BlockBehaviour.Properties.of(Material.BARRIER).sound(SoundType.AMETHYST).strength(-1, 3600000).lightLevel(s -> 12).noCollission()
@@ -86,7 +86,7 @@ public class FluidBarrierBlock extends Block {
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		;
-		return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
 	}
 
 	@Override

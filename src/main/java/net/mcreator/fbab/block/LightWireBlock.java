@@ -40,7 +40,7 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
 	public LightWireBlock() {
-		super(BlockBehaviour.Properties.of(Material.AIR).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).noCollission().noOcclusion()
+		super(BlockBehaviour.Properties.of(Material.GLASS).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).noCollission().noOcclusion()
 				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false).noDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
@@ -116,11 +116,6 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 			world.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
 		return super.updateShape(state, facing, facingState, world, currentPos, facingPos);
-	}
-
-	@Override
-	public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
-		return context.getItemInHand().getItem() != this.asItem();
 	}
 
 	@OnlyIn(Dist.CLIENT)

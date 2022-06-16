@@ -32,9 +32,9 @@
         "subtract": false
       }
     ],
-    "name": "Redstone Wire Block",
+    "name": "Redstone wire",
     "specialInfo": [],
-    "hardness": 1.0,
+    "hardness": 4.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
