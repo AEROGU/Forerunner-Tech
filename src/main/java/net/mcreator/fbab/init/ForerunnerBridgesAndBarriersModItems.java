@@ -26,8 +26,7 @@ public class ForerunnerBridgesAndBarriersModItems {
 	public static final RegistryObject<Item> POWER_RECEIVER_ON = block(ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER_ON, null);
 	public static final RegistryObject<Item> POWER_RECEIVER = block(ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER,
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
-	public static final RegistryObject<Item> LIGHT_WIRE = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE,
-			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);
+	public static final RegistryObject<Item> LIGHT_WIRE = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE, null);
 	public static final RegistryObject<Item> REDSTONE_WIREON = block(ForerunnerBridgesAndBarriersModBlocks.REDSTONE_WIREON, null);
 	public static final RegistryObject<Item> LIGHT_POWER_EMITTER = block(ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER,
 			ForerunnerBridgesAndBarriersModTabs.TAB_FORERUNNER_TECH);

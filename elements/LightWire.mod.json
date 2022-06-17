@@ -37,11 +37,11 @@
       "You are not supposed to have this item!"
     ],
     "hardness": 1000.0,
-    "resistance": 1.8E7,
+    "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
-      "value": "CUSTOM:ForerunnerTech"
+      "value": "No creative tab entry"
     },
     "destroyTool": "Not specified",
     "customDrop": {
@@ -54,18 +54,18 @@
     "canRedstoneConnect": false,
     "lightOpacity": 0,
     "material": {
-      "value": "GLASS"
+      "value": "AIR"
     },
     "tickRate": 10,
     "tickRandomly": false,
-    "isReplaceable": false,
+    "isReplaceable": true,
     "canProvidePower": false,
     "emittedRedstonePower": {
       "fixedValue": 15.0
     },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
-      "value": ""
+      "value": "CUSTOM:PowerReceiver"
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
@@ -75,7 +75,7 @@
     "slipperiness": 0.6,
     "speedFactor": 1.0,
     "jumpFactor": 1.0,
-    "reactionToPushing": "NORMAL",
+    "reactionToPushing": "DESTROY",
     "isNotColidable": true,
     "isCustomSoundType": false,
     "soundOnStep": {
@@ -97,7 +97,7 @@
       "value": ""
     },
     "luminance": 0,
-    "unbreakable": true,
+    "unbreakable": false,
     "breakHarvestLevel": 1,
     "spawnParticles": false,
     "particleToSpawn": {
