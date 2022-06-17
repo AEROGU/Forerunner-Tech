@@ -1,6 +1,7 @@
 package net.mcreator.fbab;
 
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.server.ServerLifecycleHooks;
 import net.minecraft.world.phys.Vec2;
 
 import net.minecraft.world.level.block.state.properties.Property;
@@ -8,6 +9,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Block;
@@ -15,11 +17,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.Util;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 
@@ -85,6 +90,34 @@ public class EmmiterUtilities {
 	// }
 
 	/**
+	 * Set a block in the `world` at the given position.
+	 * If going to put the block in water, the block will be waterlogged.
+	 * If going to remove a waterlogged block, the block will be replaced with water.
+	 * @param world The world to set the block in.
+	 * @param blockPos The position of the block.
+	 * @param blockToSet The block to set o NULL if going to remove a block.
+	 */
+	public static void setOrRemoveWaterloggedBlock(LevelAccessor world, BlockPos blockPos, BlockState blockToSet) {
+		boolean goingToRemoveBlocks = false;
+		if (blockToSet == null) {
+			blockToSet = Blocks.AIR.defaultBlockState();
+			goingToRemoveBlocks = true;
+		}
+
+		BlockState curBlockState = world.getBlockState(blockPos); // Block that is where we are going to set the block
+
+		if (goingToRemoveBlocks && curBlockState.getFluidState().isSource()) {
+			world.setBlock(blockPos, Blocks.WATER.defaultBlockState(), 3);
+		} else {
+			if (curBlockState.getBlock() == Blocks.WATER) {
+				world.setBlock(blockPos, setWaterLogged(blockToSet, true), 3);
+			} else {
+				world.setBlock(blockPos, blockToSet, 3);
+			}
+		}
+	}
+
+	/**
 	 * Sets the 'facing' or 'axis' (as appropriate) property of the given BlockState
 	 * and returns the modified BlockState.
 	 * @param inputBlockState
@@ -121,6 +154,22 @@ public class EmmiterUtilities {
 		return blockState;
 	}
 
+	public static BlockState setLightpower(BlockState blockState, int val) {
+		// return blockState.setValue(BlockStateProperties.WATERLOGGED, waterLogged); // Puede dar error si no tiene propiedad WATERLOGGED
+		Property<?> property = blockState.getBlock().getStateDefinition().getProperty("lightpower");
+		if (property instanceof IntegerProperty _prop) {
+			return blockState.setValue(_prop, val);
+		}
+		return blockState;
+	}
+	public static int getLightpower(BlockState blockState) {
+		// return blockState.setValue(BlockStateProperties.WATERLOGGED, waterLogged); // Puede dar error si no tiene propiedad WATERLOGGED
+		Property<?> property = blockState.getBlock().getStateDefinition().getProperty("lightpower");
+		if (property instanceof IntegerProperty _prop) {
+			return blockState.getValue(_prop);
+		}
+		return 1;
+	}
 
 	public static boolean isNoReplaceableNonSolidBlock (Block block) {
 		Block[] noReplaceableNonSolidBlocks = {
@@ -131,7 +180,7 @@ public class EmmiterUtilities {
 			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE.get(),
 			ForerunnerBridgesAndBarriersModBlocks.LIGHT_BARRIER.get(),
 			ForerunnerBridgesAndBarriersModBlocks.FLUID_BARRIER.get(),
-			ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get()
+			// ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get()
 		};
 
 		for (Block bl : noReplaceableNonSolidBlocks) {
@@ -153,6 +202,7 @@ public class EmmiterUtilities {
 	 * @param block
 	 */
 	public static void emmit(LevelAccessor world, double x, double y, double z, double limit, BlockState block) {
+
 		boolean goingToRemoveBlocks = false;
 		BlockState AIR = Blocks.AIR.defaultBlockState();
 		BlockState WATER = Blocks.WATER.defaultBlockState();
@@ -166,6 +216,11 @@ public class EmmiterUtilities {
 		BlockPos emmiterPos = new BlockPos(x, y, z);
 		Direction emmiterDirection = getDirection(world, emmiterPos);
 		// BlockState emmiter = world.getBlockState(emmiterPos);
+
+		// if (block.getBlock() == ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get()) {
+		// 	LOGGER.info("Estoy en el wire");
+		// 	block = block.setValue(ModBlockProperties.LIGHTPOWER, 1);
+		// }
 
 		BlockPos curBlockPos;
 		BlockState curBlockState;

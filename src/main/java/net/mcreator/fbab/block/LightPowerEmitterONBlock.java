@@ -77,5 +77,6 @@ public class LightPowerEmitterONBlock extends Block {
 		} else {
 			LightPowerEmitter_RedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 		}
+		LightPowerEmitter_RedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 }

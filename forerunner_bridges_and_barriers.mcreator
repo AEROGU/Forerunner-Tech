@@ -143,7 +143,7 @@
       "type": "block",
       "sortid": 22,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "light_wire",
       "path": "~/LightWire_and_PowerReceiver"
     },
@@ -422,6 +422,43 @@
       "locked_code": false,
       "registry_name": "light_fluid_barrier_recipe",
       "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "ModBlockProperties",
+      "type": "code",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "mod_block_properties"
+    },
+    {
+      "name": "OnLightWireNeighborChanged",
+      "type": "procedure",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_light_wire_neighbor_changed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightWire_and_PowerReceiver"
     }
   ],
   "variable_elements": [
@@ -562,8 +599,7 @@
     "modName": "Forerunner Bridges and Barriers",
     "version": "1.0.0-alpha",
     "description": "Puentes y barreras de luz dura como la tecnología forerunner de Halo",
-    "author": "Arturo Enrique Rosas Gutiérrez",
-    "websiteURL": "https://mcreator.net",
+    "author": "Arturo Enrique Rosas Gutiérrez (RGMods)",
     "license": "All Rights Reserved",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -572,7 +608,6 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.18.2",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.fbab",
     "lockBaseModFiles": false
   },

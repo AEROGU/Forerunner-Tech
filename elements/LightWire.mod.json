@@ -33,13 +33,15 @@
       }
     ],
     "name": "Light power",
-    "specialInfo": [],
+    "specialInfo": [
+      "You are not supposed to have this item!"
+    ],
     "hardness": 1000.0,
     "resistance": 1.8E7,
     "hasGravity": false,
     "isWaterloggable": true,
     "creativeTab": {
-      "value": "No creative tab entry"
+      "value": "CUSTOM:ForerunnerTech"
     },
     "destroyTool": "Not specified",
     "customDrop": {

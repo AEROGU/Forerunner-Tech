@@ -121,6 +121,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onNeighbourBlockChanges": {
+      "name": "LightPowerEmitter_RedstoneEvent"
+    },
     "onRedstoneOff": {
       "name": "LightPowerEmitter_RedstoneEvent"
     },

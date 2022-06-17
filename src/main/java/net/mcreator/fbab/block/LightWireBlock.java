@@ -26,23 +26,46 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-
+import net.mcreator.fbab.ForerunnerBridgesAndBarriersMod;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
+import net.mcreator.fbab.procedures.OnLightWireNeighborChangedProcedure;
+
+import net.minecraft.world.level.Level;
+
+
+import java.util.List;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 
 {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+	public static final IntegerProperty LIGHTPOWER = net.mcreator.fbab.ModBlockProperties.LIGHTPOWER;
 
 	public LightWireBlock() {
-		super(BlockBehaviour.Properties.of(Material.GLASS).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 3600000).noCollission().noOcclusion()
+		super(BlockBehaviour.Properties.of(Material.AIR).sound(SoundType.AMETHYST_CLUSTER).strength(-1, 0f).noCollission().noOcclusion()
 				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false).noDrops());
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+		this.registerDefaultState(
+			this.stateDefinition.any()
+				.setValue(FACING, Direction.NORTH)
+				.setValue(WATERLOGGED, false)
+				.setValue(LIGHTPOWER, 1)
+		);
+	}
+
+	@Override
+	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
+		super.appendHoverText(itemstack, world, list, flag);
+		list.add(new TextComponent("You are not supposed to have this item!"));
 	}
 
 	@Override
@@ -87,7 +110,7 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING, WATERLOGGED);
+		builder.add(FACING, WATERLOGGED, LIGHTPOWER);
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -101,7 +124,10 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag);
+		return this.defaultBlockState()
+			.setValue(FACING, context.getNearestLookingDirection().getOpposite())
+			.setValue(WATERLOGGED, flag)
+			.setValue(LIGHTPOWER, 1);
 	}
 
 	@Override
@@ -123,5 +149,20 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 		ItemBlockRenderTypes.setRenderLayer(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get(),
 				renderType -> renderType == RenderType.translucent());
 	}
+
+	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+		super.onPlace(blockstate, world, pos, oldState, moving);
+		OnLightWireNeighborChangedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		ForerunnerBridgesAndBarriersMod.LOGGER.info("LightWireBlock onPlace");
+	}
+
+	@Override
+	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
+		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
+		OnLightWireNeighborChangedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		ForerunnerBridgesAndBarriersMod.LOGGER.info("LightWireBlock neighborChanged");
+	}
+
 
 }
