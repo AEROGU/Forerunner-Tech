@@ -19,13 +19,13 @@
         "value": "Blocks.GLASS"
       },
       {
-        "value": "Blocks.UNPOWERED_REPEATER"
+        "value": "Items.REPEATER"
       },
       {
         "value": "Items.AMETHYST_SHARD"
       },
       {
-        "value": "Blocks.UNPOWERED_REPEATER"
+        "value": "Items.REPEATER"
       },
       {
         "value": "Items.IRON_INGOT"
