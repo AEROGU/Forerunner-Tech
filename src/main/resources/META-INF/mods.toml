@@ -4,10 +4,11 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="forerunner_bridges_and_barriers"
-version="1.0.0"
+version="1.0.1"
 displayName="Forerunner Bridges and Barriers"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 displayURL="https://mcreator.net"
+logoFile="logo.png"
 authors="Arturo Enrique Rosas Gutiérrez (RGMods)"
 description='''
 Puentes y barreras de luz dura como la tecnología forerunner de Halo

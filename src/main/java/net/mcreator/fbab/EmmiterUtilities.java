@@ -112,7 +112,7 @@ public class EmmiterUtilities {
 			if (curBlockState.getBlock() == Blocks.WATER) {
 				world.setBlock(blockPos, setWaterLogged(blockToSet, true), 3);
 			} else {
-				world.setBlock(blockPos, blockToSet, 3);
+				world.setBlock(blockPos, setWaterLogged(blockToSet, false), 3);
 			}
 		}
 	}
