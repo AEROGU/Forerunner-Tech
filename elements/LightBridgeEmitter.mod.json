@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "block",
   "definition": {
     "texture": "forerunner_metal_hd",
@@ -11,6 +11,7 @@
     "renderType": 2,
     "customModelName": "light_bridge_emitter:default",
     "rotationMode": 2,
+    "enablePitch": false,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -47,6 +48,7 @@
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
+    "requiresCorrectTool": true,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
@@ -122,13 +124,10 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onBlockAdded": {
-      "name": "LBERedstoneEvt"
-    },
-    "onBlockPlayedBy": {
-      "name": "CheckBarrierAndBridgePosition"
+      "name": "LightBridgeEmitterOnBlockUpdate"
     },
     "onRedstoneOn": {
-      "name": "LBERedstoneEvt"
+      "name": "LightBridgeEmitterOnRedstoneEvent"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

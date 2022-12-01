@@ -8,5 +8,6 @@
     "south": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
     "west": "forerunner_bridges_and_barriers:blocks/cable_apagado_left",
     "particle": "forerunner_bridges_and_barriers:blocks/cable_apagado_down"
-  }
+  },
+  "render_type": "solid"
 }

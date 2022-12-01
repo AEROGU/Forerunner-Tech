@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[43,)"
 license="All Rights Reserved"
 
 [[mods]]
@@ -17,7 +17,7 @@ Puentes y barreras de luz dura como la tecnología forerunner de Halo
 [[dependencies.forerunner_bridges_and_barriers]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2]"
+    versionRange="[1.19.2]"
     ordering="NONE"
     side="BOTH"
 

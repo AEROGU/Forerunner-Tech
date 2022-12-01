@@ -3,6 +3,7 @@ package net.mcreator.fbab.block;
 
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,10 +17,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.fbab.procedures.LightPowerEmitter_RedstoneEventProcedure;
+import net.mcreator.fbab.procedures.OnEmitterOnDestroyedProcedure;
+import net.mcreator.fbab.procedures.LightPowerEmitterOnRedstoneEventProcedure;
+import net.mcreator.fbab.procedures.LightPowerEmitterOnBlockUpdateProcedure;
 
 import java.util.List;
 import java.util.Collections;
@@ -43,18 +47,17 @@ public class LightPowerEmitterONBlock extends Block {
 		builder.add(FACING);
 	}
 
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.defaultBlockState().setValue(FACING, context.getClickedFace());
+	}
+
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		Direction facing = context.getClickedFace();;
-		return this.defaultBlockState().setValue(FACING, facing);
 	}
 
 	@Override
@@ -71,12 +74,25 @@ public class LightPowerEmitterONBlock extends Block {
 	}
 
 	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+		super.onPlace(blockstate, world, pos, oldState, moving);
+		LightPowerEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+	}
+
+	@Override
 	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
 		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
 		if (world.getBestNeighborSignal(pos) > 0) {
 		} else {
-			LightPowerEmitter_RedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+			LightPowerEmitterOnRedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}
-		LightPowerEmitter_RedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+		LightPowerEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+	}
+
+	@Override
+	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+		OnEmitterOnDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		return retval;
 	}
 }

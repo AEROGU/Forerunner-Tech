@@ -1,40 +1,11 @@
 {
   "mod_elements": [
     {
-      "name": "LBERedstoneEvt",
-      "type": "procedure",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "lbe_redstone_evt",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightBridges"
-    },
-    {
       "name": "LightBridge",
       "type": "block",
       "sortid": 8,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "light_bridge",
       "path": "~/LightBridges"
     },
@@ -78,7 +49,7 @@
       "type": "block",
       "sortid": 15,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "fluid_barrier",
       "path": "~/LightFluidBarrier"
     },
@@ -175,47 +146,6 @@
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
-      "name": "LightPowerEmitter_RedstoneEvent",
-      "type": "procedure",
-      "sortid": 28,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "light_power_emitter_redstone_event",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "blockstate",
-            "type": "blockstate"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightWire_and_PowerReceiver"
-    },
-    {
-      "name": "EmmiterUtilities",
-      "type": "code",
-      "sortid": 31,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "emmiter_utilities"
-    },
-    {
       "name": "LightBarrierEmitter",
       "type": "block",
       "sortid": 32,
@@ -256,98 +186,9 @@
       "type": "block",
       "sortid": 36,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "light_barrier",
       "path": "~/LightBarriers"
-    },
-    {
-      "name": "LBrERedstoneEvt",
-      "type": "procedure",
-      "sortid": 37,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "l_br_e_redstone_evt",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/LightBarriers"
-    },
-    {
-      "name": "CheckBarrierAndBridgePosition",
-      "type": "procedure",
-      "sortid": 42,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "check_barrier_and_bridge_position",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "OnActivatedEmitterDestroyed",
-      "type": "procedure",
-      "sortid": 43,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "on_activated_emitter_destroyed",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     },
     {
       "name": "PowerReceiverRecipe",
@@ -386,12 +227,29 @@
       "path": "~/LightFluidBarrier"
     },
     {
-      "name": "FBERedstoneEvt",
-      "type": "procedure",
-      "sortid": 48,
+      "name": "LightFluidBarrierRecipe",
+      "type": "recipe",
+      "sortid": 49,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "fbe_redstone_evt",
+      "registry_name": "light_fluid_barrier_recipe",
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "ModBlockProperties",
+      "type": "code",
+      "sortid": 50,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "mod_block_properties"
+    },
+    {
+      "name": "LightBridgeEmitterOnRedstoneEvent",
+      "type": "procedure",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_bridge_emitter_on_redstone_event",
       "metadata": {
         "dependencies": [
           {
@@ -412,32 +270,329 @@
           }
         ]
       },
-      "path": "~/LightFluidBarrier"
+      "path": "~/LightBridges"
     },
     {
-      "name": "LightFluidBarrierRecipe",
-      "type": "recipe",
-      "sortid": 49,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "light_fluid_barrier_recipe",
-      "path": "~/LightFluidBarrier"
-    },
-    {
-      "name": "ModBlockProperties",
-      "type": "code",
-      "sortid": 50,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "mod_block_properties"
-    },
-    {
-      "name": "OnLightWireNeighborChanged",
+      "name": "LightBridgeOnUpdate",
       "type": "procedure",
-      "sortid": 51,
+      "sortid": 53,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "on_light_wire_neighbor_changed",
+      "registry_name": "light_bridge_on_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBridges"
+    },
+    {
+      "name": "OnEmittedBlockUpdate",
+      "type": "procedure",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_emitted_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "emittedBlock",
+            "type": "blockstate"
+          },
+          {
+            "name": "emitterBlock",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OnEmitterBlockUpdate",
+      "type": "procedure",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_emitter_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "emittedBlock",
+            "type": "blockstate"
+          },
+          {
+            "name": "emitterBlock",
+            "type": "blockstate"
+          },
+          {
+            "name": "emitterBlockOff",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OnEmitterRedstoneEvent",
+      "type": "procedure",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_emitter_redstone_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "emitterBlock",
+            "type": "blockstate"
+          },
+          {
+            "name": "emitterBlockOff",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LightBridgeEmitterOnBlockUpdate",
+      "type": "procedure",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_bridge_emitter_on_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBridges"
+    },
+    {
+      "name": "LightBarrierEmitterOnBlockUpdate",
+      "type": "procedure",
+      "sortid": 58,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_emitter_on_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightBarrierEmitterOnRedstoneEvent",
+      "type": "procedure",
+      "sortid": 59,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_emitter_on_redstone_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightBarrierOnUpdate",
+      "type": "procedure",
+      "sortid": 60,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_barrier_on_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightBarriers"
+    },
+    {
+      "name": "LightPowerEmitterOnBlockUpdate",
+      "type": "procedure",
+      "sortid": 61,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_power_emitter_on_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightWire_and_PowerReceiver"
+    },
+    {
+      "name": "LightPowerEmitterOnRedstoneEvent",
+      "type": "procedure",
+      "sortid": 62,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_power_emitter_on_redstone_event",
       "metadata": {
         "dependencies": [
           {
@@ -459,6 +614,179 @@
         ]
       },
       "path": "~/LightWire_and_PowerReceiver"
+    },
+    {
+      "name": "LightWireOnUpdate",
+      "type": "procedure",
+      "sortid": 63,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_wire_on_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightWire_and_PowerReceiver"
+    },
+    {
+      "name": "LightFluidBarrierEmitterOnBlockUpdate",
+      "type": "procedure",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_fluid_barrier_emitter_on_block_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "LightFluidBarrierEmitterOnRedstoneEvent",
+      "type": "procedure",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "light_fluid_barrier_emitter_on_redstone_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "FluidBarrierOnUpdate",
+      "type": "procedure",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fluid_barrier_on_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/LightFluidBarrier"
+    },
+    {
+      "name": "OnEmitterOnDestroyed",
+      "type": "procedure",
+      "sortid": 67,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_emitter_on_destroyed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsEmittedBlock",
+      "type": "procedure",
+      "sortid": 69,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_emitted_block",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -633,10 +961,10 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.18.2",
+    "currentGenerator": "forge-1.19.2",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.fbab",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202200120510
+  "mcreatorVersion": 202200348217
 }

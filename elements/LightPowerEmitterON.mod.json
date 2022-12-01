@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "block",
   "definition": {
     "texture": "forerunner_metal_hd",
@@ -11,6 +11,7 @@
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 4,
+    "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -47,6 +48,7 @@
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
+    "requiresCorrectTool": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
@@ -121,11 +123,17 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockAdded": {
+      "name": "LightPowerEmitterOnBlockUpdate"
+    },
     "onNeighbourBlockChanges": {
-      "name": "LightPowerEmitter_RedstoneEvent"
+      "name": "LightPowerEmitterOnBlockUpdate"
+    },
+    "onDestroyedByPlayer": {
+      "name": "OnEmitterOnDestroyed"
     },
     "onRedstoneOff": {
-      "name": "LightPowerEmitter_RedstoneEvent"
+      "name": "LightPowerEmitterOnRedstoneEvent"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

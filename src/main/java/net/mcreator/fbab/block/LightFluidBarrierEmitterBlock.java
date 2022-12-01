@@ -19,12 +19,12 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.fbab.procedures.FBERedstoneEvtProcedure;
+import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnRedstoneEventProcedure;
+import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnBlockUpdateProcedure;
 
 import java.util.List;
 import java.util.Collections;
@@ -40,9 +40,9 @@ public class LightFluidBarrierEmitterBlock extends Block {
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("It emits an intelligent phase barrier"));
-		list.add(new TextComponent("it allows the passage of entities"));
-		list.add(new TextComponent("but not fluids."));
+		list.add(Component.literal("It emits an intelligent phase barrier"));
+		list.add(Component.literal("it allows the passage of entities"));
+		list.add(Component.literal("but not fluids."));
 	}
 
 	@Override
@@ -55,18 +55,17 @@ public class LightFluidBarrierEmitterBlock extends Block {
 		builder.add(FACING);
 	}
 
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
+	}
+
 	public BlockState rotate(BlockState state, Rotation rot) {
 		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		;
-		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
 	}
 
 	@Override
@@ -92,14 +91,14 @@ public class LightFluidBarrierEmitterBlock extends Block {
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		FBERedstoneEvtProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		LightFluidBarrierEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
 	@Override
 	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
 		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
 		if (world.getBestNeighborSignal(pos) > 0) {
-			FBERedstoneEvtProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+			LightFluidBarrierEmitterOnRedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}
 	}
 }

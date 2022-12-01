@@ -3,12 +3,8 @@ package net.mcreator.fbab.block;
 
 import org.checkerframework.checker.units.qual.s;
 
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.Material;
@@ -28,27 +24,32 @@ import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
+import net.mcreator.fbab.procedures.LightBridgeOnUpdateProcedure;
+
+import net.minecraft.world.level.block.state.properties.IntegerProperty; // CUSTOM
+import net.mcreator.fbab.ModBlockProperties; // CUSTOM
 
 public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
-
 {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+	public static final IntegerProperty LIGHTPOWER = ModBlockProperties.LIGHTPOWER; // CUSTOM
 
 	public LightBridgeBlock() {
 		super(BlockBehaviour.Properties.of(Material.GLASS).sound(SoundType.GLASS).strength(-1, 3600000).lightLevel(s -> 12).noOcclusion()
-				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false).noDrops());
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)
+				.noLootTable());
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false)
+		.setValue(LIGHTPOWER, 1) // CUSTOM
+		);
 	}
 
 	@Override
@@ -78,27 +79,27 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		Vec3 offset = state.getOffset(world, pos);
-		switch ((Direction) state.getValue(FACING)) {
-			case SOUTH :
-			default :
-				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
-			case NORTH :
-				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
-			case EAST :
-				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
-			case WEST :
-				return box(0, 8, 0, 16, 9, 16).move(offset.x, offset.y, offset.z);
-			case UP :
-				return box(0, 0, 8, 16, 16, 9).move(offset.x, offset.y, offset.z);
-			case DOWN :
-				return box(0, 0, 7, 16, 16, 8).move(offset.x, offset.y, offset.z);
-		}
+
+		return switch (state.getValue(FACING)) {
+			default -> box(0, 8, 0, 16, 9, 16);
+			case NORTH -> box(0, 8, 0, 16, 9, 16);
+			case EAST -> box(0, 8, 0, 16, 9, 16);
+			case WEST -> box(0, 8, 0, 16, 9, 16);
+			case UP -> box(0, 0, 8, 16, 16, 9);
+			case DOWN -> box(0, 0, 7, 16, 16, 8);
+		};
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING, WATERLOGGED);
+		builder.add(FACING, WATERLOGGED, LIGHTPOWER); // CUSTOM
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag)
+		.setValue(LIGHTPOWER, 1); // CUSTOM
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -107,12 +108,6 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag);
 	}
 
 	@Override
@@ -130,7 +125,7 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 	}
 
 	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
 		return BlockPathTypes.WALKABLE;
 	}
 
@@ -139,10 +134,15 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock
 		return PushReaction.BLOCK;
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE.get(),
-				renderType -> renderType == RenderType.translucent());
+	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+		super.onPlace(blockstate, world, pos, oldState, moving);
+		LightBridgeOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
+	@Override
+	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
+		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
+		LightBridgeOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+	}
 }

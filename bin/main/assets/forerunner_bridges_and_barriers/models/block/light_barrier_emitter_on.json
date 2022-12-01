@@ -9,5 +9,6 @@
     "3": "forerunner_bridges_and_barriers:blocks/light_section_left_animated",
     "4": "forerunner_bridges_and_barriers:blocks/light_section_right_animated",
     "missing": "forerunner_bridges_and_barriers:blocks/default"
-  }
+  },
+  "render_type": "translucent"
 }

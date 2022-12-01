@@ -7,5 +7,6 @@
     "1": "forerunner_bridges_and_barriers:blocks/light_section_down_animated",
     "2": "forerunner_bridges_and_barriers:blocks/light_section_left_animated",
     "3": "forerunner_bridges_and_barriers:blocks/light_section_right_animated"
-  }
+  },
+  "render_type": "translucent"
 }

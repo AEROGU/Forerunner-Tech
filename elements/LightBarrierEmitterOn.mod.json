@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "block",
   "definition": {
     "texture": "forerunner_metal_hd",
@@ -11,6 +11,7 @@
     "renderType": 2,
     "customModelName": "light_barrier_emitter_on:default",
     "rotationMode": 2,
+    "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -56,6 +57,7 @@
     },
     "dropAmount": 0,
     "useLootTableForDrops": false,
+    "requiresCorrectTool": true,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
@@ -130,14 +132,17 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onDestroyedByPlayer": {
-      "name": "OnActivatedEmitterDestroyed"
+    "onBlockAdded": {
+      "name": "LightBarrierEmitterOnBlockUpdate"
     },
-    "onDestroyedByExplosion": {
-      "name": "OnActivatedEmitterDestroyed"
+    "onNeighbourBlockChanges": {
+      "name": "LightBarrierEmitterOnBlockUpdate"
+    },
+    "onDestroyedByPlayer": {
+      "name": "OnEmitterOnDestroyed"
     },
     "onRedstoneOff": {
-      "name": "LBrERedstoneEvt"
+      "name": "LightBarrierEmitterOnRedstoneEvent"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

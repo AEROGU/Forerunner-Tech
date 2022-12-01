@@ -3,9 +3,6 @@ package net.mcreator.fbab.block;
 
 import org.checkerframework.checker.units.qual.s;
 
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.material.PushReaction;
@@ -21,6 +18,7 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -28,21 +26,25 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
 
-import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
+import net.mcreator.fbab.procedures.FluidBarrierOnUpdateProcedure;
+
+import net.minecraft.world.level.block.state.properties.IntegerProperty; // CUSTOM
+import net.mcreator.fbab.ModBlockProperties; // CUSTOM
 
 import java.util.List;
 import java.util.Collections;
 
 public class FluidBarrierBlock extends Block {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
+	public static final IntegerProperty LIGHTPOWER = ModBlockProperties.LIGHTPOWER; // CUSTOM
 
 	public FluidBarrierBlock() {
 		super(BlockBehaviour.Properties.of(Material.BARRIER).sound(SoundType.AMETHYST).strength(-1, 3600000).lightLevel(s -> 12).noCollission()
 				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true));
-		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
+		.setValue(LIGHTPOWER, 1) // CUSTOM
+		);
 	}
 
 	@Override
@@ -72,7 +74,14 @@ public class FluidBarrierBlock extends Block {
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING);
+		builder.add(FACING, LIGHTPOWER); // CUSTOM
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		return this.defaultBlockState()
+		.setValue(FACING, context.getNearestLookingDirection().getOpposite())
+		.setValue(LIGHTPOWER, 1); // CUSTOM
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -84,13 +93,7 @@ public class FluidBarrierBlock extends Block {
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		;
-		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
-	}
-
-	@Override
-	public BlockPathTypes getAiPathNodeType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
+	public BlockPathTypes getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
 		return BlockPathTypes.BLOCKED;
 	}
 
@@ -107,10 +110,15 @@ public class FluidBarrierBlock extends Block {
 		return Collections.singletonList(new ItemStack(this, 1));
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(ForerunnerBridgesAndBarriersModBlocks.FLUID_BARRIER.get(),
-				renderType -> renderType == RenderType.translucent());
+	@Override
+	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
+		super.onPlace(blockstate, world, pos, oldState, moving);
+		FluidBarrierOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
+	@Override
+	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
+		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
+		FluidBarrierOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
+	}
 }

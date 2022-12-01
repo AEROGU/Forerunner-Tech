@@ -8,5 +8,6 @@
     "south": "forerunner_bridges_and_barriers:blocks/lightsectionbasecolor",
     "west": "forerunner_bridges_and_barriers:blocks/light_section_left_animated",
     "particle": "forerunner_bridges_and_barriers:blocks/light_section_down_animated"
-  }
+  },
+  "render_type": "translucent"
 }

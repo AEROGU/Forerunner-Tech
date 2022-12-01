@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "block",
   "definition": {
     "texture": "cable_apagado_down",
@@ -11,6 +11,7 @@
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 2,
+    "enablePitch": false,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -51,6 +52,7 @@
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
+    "requiresCorrectTool": true,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
@@ -126,10 +128,10 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onBlockAdded": {
-      "name": "FBERedstoneEvt"
+      "name": "LightFluidBarrierEmitterOnBlockUpdate"
     },
     "onRedstoneOn": {
-      "name": "FBERedstoneEvt"
+      "name": "LightFluidBarrierEmitterOnRedstoneEvent"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

@@ -5,5 +5,6 @@
     "particle": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
     "0": "forerunner_bridges_and_barriers:blocks/forerunner_metal_hd",
     "missing": "forerunner_bridges_and_barriers:blocks/default"
-  }
+  },
+  "render_type": "solid"
 }

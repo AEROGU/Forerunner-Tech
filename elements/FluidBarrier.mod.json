@@ -1,5 +1,5 @@
 {
-  "_fv": 28,
+  "_fv": 34,
   "_type": "block",
   "definition": {
     "texture": "light_section_down_animated",
@@ -11,6 +11,7 @@
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 2,
+    "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": true,
     "itemTexture": "",
@@ -47,6 +48,7 @@
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
+    "requiresCorrectTool": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": false,
@@ -68,7 +70,7 @@
     "offsetType": "NONE",
     "aiPathNodeType": "BLOCKED",
     "beaconColorModifier": {
-      "value": -536480781,
+      "value": -16387085,
       "falpha": 0.0
     },
     "flammability": 0,
@@ -125,6 +127,12 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onBlockAdded": {
+      "name": "FluidBarrierOnUpdate"
+    },
+    "onNeighbourBlockChanges": {
+      "name": "FluidBarrierOnUpdate"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

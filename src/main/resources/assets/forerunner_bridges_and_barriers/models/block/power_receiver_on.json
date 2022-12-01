@@ -3,5 +3,6 @@
   "textures": {
     "all": "forerunner_bridges_and_barriers:blocks/power_receiver_on",
     "particle": "forerunner_bridges_and_barriers:blocks/power_receiver_on"
-  }
+  },
+  "render_type": "solid"
 }

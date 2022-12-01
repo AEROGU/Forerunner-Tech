@@ -1,15 +1,13 @@
 
 package net.mcreator.fbab.block;
 
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
+import org.checkerframework.checker.units.qual.s;
 
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -25,50 +23,45 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.mcreator.fbab.ForerunnerBridgesAndBarriersMod;
+
+import net.mcreator.fbab.procedures.LightWireOnUpdateProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
-import net.mcreator.fbab.procedures.OnLightWireNeighborChangedProcedure;
 
-import net.minecraft.world.level.Level;
-
+import net.minecraft.world.level.block.state.properties.IntegerProperty; // CUSTOM
+import net.mcreator.fbab.ModBlockProperties; // CUSTOM
 
 import java.util.List;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 
 {
 	public static final DirectionProperty FACING = DirectionalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public static final IntegerProperty LIGHTPOWER = net.mcreator.fbab.ModBlockProperties.LIGHTPOWER;
+	public static final IntegerProperty LIGHTPOWER = ModBlockProperties.LIGHTPOWER; // CUSTOM
 
 	public LightWireBlock() {
-		super(BlockBehaviour.Properties.of(Material.AIR).sound(SoundType.AMETHYST_CLUSTER).strength(1000f, 10f).noCollission().noOcclusion()
-				.hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false).noDrops());
-		this.registerDefaultState(
-			this.stateDefinition.any()
-			.setValue(FACING, Direction.NORTH)
-			.setValue(WATERLOGGED, false)
-			.setValue(LIGHTPOWER, 0)
+		super(BlockBehaviour.Properties.of(Material.AIR).sound(SoundType.AMETHYST_CLUSTER).strength(1000f, 10f).lightLevel(s -> 15).noCollission()
+				.noOcclusion().hasPostProcess((bs, br, bp) -> true).emissiveRendering((bs, br, bp) -> true).isRedstoneConductor((bs, br, bp) -> false)
+				.noLootTable());
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false)
+		.setValue(LIGHTPOWER, 1) // CUSTOM
 		);
 	}
 
 	@Override
 	public void appendHoverText(ItemStack itemstack, BlockGetter world, List<Component> list, TooltipFlag flag) {
 		super.appendHoverText(itemstack, world, list, flag);
-		list.add(new TextComponent("You are not supposed to have this item!"));
+		list.add(Component.literal("You are not supposed to have this item!"));
 	}
 
 	@Override
@@ -93,27 +86,27 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		Vec3 offset = state.getOffset(world, pos);
-		switch ((Direction) state.getValue(FACING)) {
-			case SOUTH :
-			default :
-				return box(6, 6, 0, 10, 10, 16).move(offset.x, offset.y, offset.z);
-			case NORTH :
-				return box(6, 6, 0, 10, 10, 16).move(offset.x, offset.y, offset.z);
-			case EAST :
-				return box(0, 6, 6, 16, 10, 10).move(offset.x, offset.y, offset.z);
-			case WEST :
-				return box(0, 6, 6, 16, 10, 10).move(offset.x, offset.y, offset.z);
-			case UP :
-				return box(6, 0, 6, 10, 16, 10).move(offset.x, offset.y, offset.z);
-			case DOWN :
-				return box(6, 0, 6, 10, 16, 10).move(offset.x, offset.y, offset.z);
-		}
+
+		return switch (state.getValue(FACING)) {
+			default -> box(6, 6, 0, 10, 10, 16);
+			case NORTH -> box(6, 6, 0, 10, 10, 16);
+			case EAST -> box(0, 6, 6, 16, 10, 10);
+			case WEST -> box(0, 6, 6, 16, 10, 10);
+			case UP -> box(6, 0, 6, 10, 16, 10);
+			case DOWN -> box(6, 0, 6, 10, 16, 10);
+		};
 	}
 
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		builder.add(FACING, WATERLOGGED, LIGHTPOWER);
+		builder.add(FACING, WATERLOGGED, LIGHTPOWER); // CUSTOM
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
+		return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WATERLOGGED, flag)
+		.setValue(LIGHTPOWER, 1); // CUSTOM
 	}
 
 	public BlockState rotate(BlockState state, Rotation rot) {
@@ -122,15 +115,6 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;;
-		return this.defaultBlockState()
-		.setValue(FACING, context.getNearestLookingDirection().getOpposite())
-		.setValue(WATERLOGGED, flag)
-		.setValue(LIGHTPOWER, 0);
 	}
 
 	@Override
@@ -162,22 +146,15 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock
 		return PushReaction.DESTROY;
 	}
 
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderLayer() {
-		ItemBlockRenderTypes.setRenderLayer(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get(),
-				renderType -> renderType == RenderType.translucent());
-	}
-
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
-		OnLightWireNeighborChangedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		LightWireOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
 	@Override
 	public void neighborChanged(BlockState blockstate, Level world, BlockPos pos, Block neighborBlock, BlockPos fromPos, boolean moving) {
 		super.neighborChanged(blockstate, world, pos, neighborBlock, fromPos, moving);
-		OnLightWireNeighborChangedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+		LightWireOnUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
-
 }

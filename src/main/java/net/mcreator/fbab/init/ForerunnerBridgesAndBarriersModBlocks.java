@@ -7,10 +7,6 @@ package net.mcreator.fbab.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.level.block.Block;
 
@@ -56,19 +52,4 @@ public class ForerunnerBridgesAndBarriersModBlocks {
 			() -> new LightFluidBarrierEmitterBlock());
 	public static final RegistryObject<Block> LIGHT_FLUID_BARRIER_EMITTER_ON = REGISTRY.register("light_fluid_barrier_emitter_on",
 			() -> new LightFluidBarrierEmitterOnBlock());
-
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-	public static class ClientSideHandler {
-		@SubscribeEvent
-		public static void clientSetup(FMLClientSetupEvent event) {
-			LightBridgeBlock.registerRenderLayer();
-			LightBridgeEmitterBlock.registerRenderLayer();
-			LightBridgeEmitterONBlock.registerRenderLayer();
-			FluidBarrierBlock.registerRenderLayer();
-			LightWireBlock.registerRenderLayer();
-			LightBarrierEmitterBlock.registerRenderLayer();
-			LightBarrierEmitterOnBlock.registerRenderLayer();
-			LightBarrierBlock.registerRenderLayer();
-		}
-	}
 }
