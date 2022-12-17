@@ -7,13 +7,13 @@
   ],
   "key": {
     "0": {
-      "item": "minecraft:glass"
+      "item": "minecraft:redstone"
     },
     "1": {
       "item": "minecraft:glass"
     },
     "2": {
-      "item": "minecraft:glass"
+      "item": "minecraft:redstone"
     },
     "3": {
       "item": "minecraft:prismarine"

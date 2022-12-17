@@ -10,13 +10,13 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": "Blocks.GLASS"
+        "value": "Items.REDSTONE"
       },
       {
         "value": "Blocks.GLASS"
       },
       {
-        "value": "Blocks.GLASS"
+        "value": "Items.REDSTONE"
       },
       {
         "value": "Blocks.PRISMARINE"

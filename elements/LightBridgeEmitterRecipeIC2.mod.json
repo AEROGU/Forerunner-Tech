@@ -40,7 +40,7 @@
     "recipeReturnStack": {
       "value": "CUSTOM:LightBridgeEmitter"
     },
-    "name": "light_brisge_emitter",
+    "name": "light_bridge_emitter_recipe_ic_2",
     "namespace": "mod"
   }
 }

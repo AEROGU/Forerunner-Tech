@@ -787,6 +787,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "LightBridgeEmitterRecipeIC2",
+      "type": "recipe",
+      "sortid": 70,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "light_bridge_emitter_recipe_ic_2",
+      "path": "~/LightBridges"
     }
   ],
   "variable_elements": [
@@ -949,7 +958,7 @@
   "workspaceSettings": {
     "modid": "forerunner_bridges_and_barriers",
     "modName": "Forerunner Bridges and Barriers",
-    "version": "1.1.0",
+    "version": "1.2.1",
     "description": "Puentes y barreras de luz dura como la tecnología forerunner de Halo",
     "author": "Arturo Enrique Rosas Gutiérrez (RGMods)",
     "websiteURL": "https://mcreator.net",
