@@ -51,7 +51,7 @@
       "fixedValue": []
     },
     "hardness": 1.0,
-    "resistance": 18000000.0,
+    "resistance": 1.8E7,
     "hasGravity": false,
     "isWaterloggable": false,
     "hasBlockItem": true,

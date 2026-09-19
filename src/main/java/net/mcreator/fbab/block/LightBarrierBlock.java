@@ -1,10 +1,11 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.level.redstone.Orientation;
-import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -21,17 +22,12 @@ import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.ARGB;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.procedures.LightBarrierOnUpdateProcedure;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Function;
 
@@ -63,16 +59,6 @@ public class LightBarrierBlock extends Block implements SimpleWaterloggedBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return shapes.apply(state);
-	}
-
-	@Override
-	public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter world, BlockPos pos, FluidState fluidstate) {
-		return true;
-	}
-
-	@Override
-	public Integer getBeaconColorMultiplier(BlockState state, LevelReader world, BlockPos pos, BlockPos beaconPos) {
-		return ARGB.opaque(-16387085);
 	}
 
 	@Override
@@ -129,11 +115,6 @@ public class LightBarrierBlock extends Block implements SimpleWaterloggedBlock {
 			scheduledTickAccess.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
 		return super.updateShape(state, world, scheduledTickAccess, currentPos, facing, facingPos, facingState, random);
-	}
-
-	@Override
-	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return PathType.WALKABLE;
 	}
 
 	@Override

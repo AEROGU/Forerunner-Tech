@@ -1,5 +1,7 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -11,7 +13,6 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,8 +26,6 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnRedstoneEventProcedure;
 import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnBlockUpdateProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Consumer;
 
@@ -61,11 +60,6 @@ public class LightFluidBarrierEmitterBlock extends Block {
 	}
 
 	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
-	}
-
-	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
 		LightFluidBarrierEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
@@ -81,7 +75,7 @@ public class LightFluidBarrierEmitterBlock extends Block {
 
 	public static class Item extends BlockItem {
 		public Item(Item.Properties properties) {
-			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER.get(), properties);
+			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER, properties);
 		}
 
 		@Override

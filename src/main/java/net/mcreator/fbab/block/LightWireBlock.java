@@ -1,5 +1,7 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -19,14 +21,12 @@ import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.util.RandomSource;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
@@ -34,8 +34,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.procedures.LightWireOnUpdateProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Function;
 import java.util.function.Consumer;
@@ -68,11 +66,6 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock {
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
 		return shapes.apply(state);
-	}
-
-	@Override
-	public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter world, BlockPos pos, FluidState fluidstate) {
-		return true;
 	}
 
 	@Override
@@ -132,8 +125,8 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock {
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state, boolean includeData, Player entity) {
-		return new ItemStack(ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER.get());
+	public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state, boolean includeData) {
+		return new ItemStack(ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER);
 	}
 
 	@Override
@@ -150,7 +143,7 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock {
 
 	public static class Item extends BlockItem {
 		public Item(Item.Properties properties) {
-			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get(), properties);
+			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE, properties);
 		}
 
 		@Override

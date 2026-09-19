@@ -14,9 +14,9 @@ public class LightWireOnUpdateProcedure {
 		BlockState l_blockstate = Blocks.AIR.defaultBlockState();
 		BlockState curBlock = Blocks.AIR.defaultBlockState();
 		BlockState emitterBlockOff = Blocks.AIR.defaultBlockState();
-		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON.get().defaultBlockState();
-		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER.get().defaultBlockState();
-		emittedBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get().defaultBlockState();
+		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER_ON.defaultBlockState();
+		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_POWER_EMITTER.defaultBlockState();
+		emittedBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.defaultBlockState();
 		l_blockstate = blockstate;
 		curBlock = (world.getBlockState(BlockPos.containing(x, y, z)));
 		OnEmittedBlockUpdateProcedure.execute(world, x, y, z, blockstate, emittedBlock, emitterBlock);

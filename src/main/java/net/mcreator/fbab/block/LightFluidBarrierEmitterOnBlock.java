@@ -1,7 +1,8 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.level.redstone.Orientation;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,24 +13,19 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.fbab.procedures.OnEmitterOnDestroyedProcedure;
 import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnRedstoneEventProcedure;
 import net.mcreator.fbab.procedures.LightFluidBarrierEmitterOnBlockUpdateProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Consumer;
 
@@ -64,11 +60,6 @@ public class LightFluidBarrierEmitterOnBlock extends Block {
 	}
 
 	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
-	}
-
-	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
 		super.onPlace(blockstate, world, pos, oldState, moving);
 		LightFluidBarrierEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
@@ -84,16 +75,9 @@ public class LightFluidBarrierEmitterOnBlock extends Block {
 		LightFluidBarrierEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
 	}
 
-	@Override
-	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, ItemStack toolStack, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, toolStack, willHarvest, fluid);
-		OnEmitterOnDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
-		return retval;
-	}
-
 	public static class Item extends BlockItem {
 		public Item(Item.Properties properties) {
-			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER_ON.get(), properties);
+			super(ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER_ON, properties);
 		}
 
 		@Override

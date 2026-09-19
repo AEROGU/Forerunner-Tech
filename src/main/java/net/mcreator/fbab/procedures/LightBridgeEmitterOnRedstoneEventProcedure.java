@@ -12,8 +12,8 @@ public class LightBridgeEmitterOnRedstoneEventProcedure {
 		BlockState emitterBlock = Blocks.AIR.defaultBlockState();
 		BlockState emitterBlockOff = Blocks.AIR.defaultBlockState();
 		BlockState block = Blocks.AIR.defaultBlockState();
-		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER_ON.get().defaultBlockState();
-		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER.get().defaultBlockState();
+		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER_ON.defaultBlockState();
+		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER.defaultBlockState();
 		block = (world.getBlockState(BlockPos.containing(x, y, z)));
 		OnEmitterRedstoneEventProcedure.execute(world, x, y, z, emitterBlock, emitterBlockOff);
 	}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "forerunner_bridges_and_barriers",
+  "version": "2.0.0",
+  "name": "Forerunner Bridges and Barriers",
+  "description": "Halo-inspired hard light bridges, barriers and long-distance redstone. Puentes y barreras de luz dura inspirados en Halo, y redstone a larga distancia.  By / Por: Arturo Enrique Rosas Gutiérrez (AEROGU) All rights reserved. / Todos los derechos reservados.",
+  "authors": [
+    "Arturo Enrique Rosas Gutiérrez (RGMods)"
+  ],
+  "contact": {
+    "homepage": "https://github.com/AEROGU/Forerunner-Tech",
+    "sources": ""
+  },
+  "license": "All Rights Reserved",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.mcreator.fbab.ForerunnerBridgesAndBarriersMod"
+    ],
+    "client": [
+      "net.mcreator.fbab.ForerunnerBridgesAndBarriersModClient"
+    ]
+  },
+  "mixins": [
+    "forerunner_bridges_and_barriers.mixins.json"
+  ],
+  "accessWidener": "META-INF/forerunner_bridges_and_barriers.classtweaker",
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.1.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

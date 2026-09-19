@@ -1,9 +1,7 @@
 package net.mcreator.fbab.block;
 
 import net.minecraft.world.level.redstone.Orientation;
-import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -14,19 +12,14 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.util.ARGB;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.procedures.FluidBarrierOnUpdateProcedure;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class FluidBarrierBlock extends Block {
 	public static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
@@ -37,15 +30,7 @@ public class FluidBarrierBlock extends Block {
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIGHTPOWER, 1));
 	}
 
-	@Override
-	public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter world, BlockPos pos, FluidState fluidstate) {
-		return true;
-	}
 
-	@Override
-	public Integer getBeaconColorMultiplier(BlockState state, LevelReader world, BlockPos pos, BlockPos beaconPos) {
-		return ARGB.opaque(-16387085);
-	}
 
 	@Override
 	public boolean skipRendering(BlockState state, BlockState adjacentBlockState, Direction side) {
@@ -84,10 +69,6 @@ public class FluidBarrierBlock extends Block {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
 	}
 
-	@Override
-	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return PathType.BLOCKED;
-	}
 
 	@Override
 	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {

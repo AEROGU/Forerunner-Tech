@@ -3,11 +3,12 @@
  */
 package net.mcreator.fbab.init;
 
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredBlock;
-
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.Identifier;
+import net.minecraft.core.registries.Registries;
 
 import net.mcreator.fbab.block.*;
 import net.mcreator.fbab.ForerunnerBridgesAndBarriersMod;
@@ -15,24 +16,24 @@ import net.mcreator.fbab.ForerunnerBridgesAndBarriersMod;
 import java.util.function.Function;
 
 public class ForerunnerBridgesAndBarriersModBlocks {
-	public static final DeferredRegister.Blocks REGISTRY = DeferredRegister.createBlocks(ForerunnerBridgesAndBarriersMod.MODID);
-	public static final DeferredBlock<Block> LIGHT_BRIDGE;
-	public static final DeferredBlock<Block> LIGHT_BRIDGE_EMITTER;
-	public static final DeferredBlock<Block> LIGHT_BRIDGE_EMITTER_ON;
-	public static final DeferredBlock<Block> FLUID_BARRIER;
-	public static final DeferredBlock<Block> REDSTONE_WIRE_BLOCK;
-	public static final DeferredBlock<Block> POWER_RECEIVER_ON;
-	public static final DeferredBlock<Block> POWER_RECEIVER;
-	public static final DeferredBlock<Block> LIGHT_WIRE;
-	public static final DeferredBlock<Block> REDSTONE_WIREON;
-	public static final DeferredBlock<Block> LIGHT_POWER_EMITTER;
-	public static final DeferredBlock<Block> LIGHT_POWER_EMITTER_ON;
-	public static final DeferredBlock<Block> LIGHT_BARRIER_EMITTER;
-	public static final DeferredBlock<Block> LIGHT_BARRIER_EMITTER_ON;
-	public static final DeferredBlock<Block> LIGHT_BARRIER;
-	public static final DeferredBlock<Block> LIGHT_FLUID_BARRIER_EMITTER;
-	public static final DeferredBlock<Block> LIGHT_FLUID_BARRIER_EMITTER_ON;
-	static {
+	public static Block LIGHT_BRIDGE;
+	public static Block LIGHT_BRIDGE_EMITTER;
+	public static Block LIGHT_BRIDGE_EMITTER_ON;
+	public static Block FLUID_BARRIER;
+	public static Block REDSTONE_WIRE_BLOCK;
+	public static Block POWER_RECEIVER_ON;
+	public static Block POWER_RECEIVER;
+	public static Block LIGHT_WIRE;
+	public static Block REDSTONE_WIREON;
+	public static Block LIGHT_POWER_EMITTER;
+	public static Block LIGHT_POWER_EMITTER_ON;
+	public static Block LIGHT_BARRIER_EMITTER;
+	public static Block LIGHT_BARRIER_EMITTER_ON;
+	public static Block LIGHT_BARRIER;
+	public static Block LIGHT_FLUID_BARRIER_EMITTER;
+	public static Block LIGHT_FLUID_BARRIER_EMITTER_ON;
+
+	public static void load() {
 		LIGHT_BRIDGE = register("light_bridge", LightBridgeBlock::new);
 		LIGHT_BRIDGE_EMITTER = register("light_bridge_emitter", LightBridgeEmitterBlock::new);
 		LIGHT_BRIDGE_EMITTER_ON = register("light_bridge_emitter_on", LightBridgeEmitterONBlock::new);
@@ -53,7 +54,7 @@ public class ForerunnerBridgesAndBarriersModBlocks {
 
 	// Start of user code block custom blocks
 	// End of user code block custom blocks
-	private static <B extends Block> DeferredBlock<B> register(String name, Function<BlockBehaviour.Properties, ? extends B> supplier) {
-		return REGISTRY.registerBlock(name, supplier);
+	private static <B extends Block> B register(String name, Function<BlockBehaviour.Properties, B> supplier) {
+		return (B) Blocks.register(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ForerunnerBridgesAndBarriersMod.MODID, name)), (Function<BlockBehaviour.Properties, Block>) supplier, BlockBehaviour.Properties.of());
 	}
 }

@@ -1,10 +1,11 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.level.redstone.Orientation;
-import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -21,18 +22,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.util.RandomSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.fbab.procedures.OnEmitterOnDestroyedProcedure;
 import net.mcreator.fbab.procedures.LightBarrierEmitterOnRedstoneEventProcedure;
 import net.mcreator.fbab.procedures.LightBarrierEmitterOnBlockUpdateProcedure;
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Function;
 
@@ -122,18 +118,8 @@ public class LightBarrierEmitterOnBlock extends Block implements SimpleWaterlogg
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state, boolean includeData, Player entity) {
-		return new ItemStack(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER.get());
-	}
-
-	@Override
-	public PathType getBlockPathType(BlockState state, BlockGetter world, BlockPos pos, Mob entity) {
-		return PathType.WALKABLE;
-	}
-
-	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
+	public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state, boolean includeData) {
+		return new ItemStack(ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER);
 	}
 
 	@Override
@@ -150,12 +136,5 @@ public class LightBarrierEmitterOnBlock extends Block implements SimpleWaterlogg
 			LightBarrierEmitterOnRedstoneEventProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
 		}
 		LightBarrierEmitterOnBlockUpdateProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ(), blockstate);
-	}
-
-	@Override
-	public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, ItemStack toolStack, boolean willHarvest, FluidState fluid) {
-		boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, toolStack, willHarvest, fluid);
-		OnEmitterOnDestroyedProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
-		return retval;
 	}
 }

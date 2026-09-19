@@ -1,5 +1,7 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -11,15 +13,12 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.procedures.LightPowerEmitterOnRedstoneEventProcedure;
 import net.mcreator.fbab.procedures.LightPowerEmitterOnBlockUpdateProcedure;
-
-import javax.annotation.Nullable;
 
 public class LightPowerEmitterBlock extends Block {
 	public static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
@@ -49,11 +48,6 @@ public class LightPowerEmitterBlock extends Block {
 
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
 		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
-	}
-
-	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
 	}
 
 	@Override

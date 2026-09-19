@@ -46,10 +46,10 @@ public class OnEmittedBlockUpdateProcedure {
 			}
 		} else {
 			if (power > 1 && (LightRankProcedure.execute(blockAhead) == 0 ? blockAhead.canBeReplaced() : LightRankProcedure.execute(emittedBlock) > LightRankProcedure.execute(blockAhead))) {
-				if (blockAhead.getBlock() == Blocks.WATER || getPropertyByName(blockAhead, "waterlogged") instanceof BooleanProperty _getbpW && blockAhead.getValue(_getbpW)) {
+				if (blockAhead.getBlock() == Blocks.WATER || getPropertyByName(blockAhead, "waterlogged") instanceof BooleanProperty _getbp23 && blockAhead.getValue(_getbp23)) {
 					world.setBlock(BlockPos.containing(blockAheadX, blockAheadY, blockAheadZ),
-							((blockStateWithInt((blockStateWithDirection(emittedBlock, facing)), "lightpower", (int) (power - 1))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _withbp25
-									? (blockStateWithInt((blockStateWithDirection(emittedBlock, facing)), "lightpower", (int) (power - 1))).setValue(_withbp25, true)
+							((blockStateWithInt((blockStateWithDirection(emittedBlock, facing)), "lightpower", (int) (power - 1))).getBlock().getStateDefinition().getProperty("waterlogged") instanceof BooleanProperty _withbp26
+									? (blockStateWithInt((blockStateWithDirection(emittedBlock, facing)), "lightpower", (int) (power - 1))).setValue(_withbp26, true)
 									: (blockStateWithInt((blockStateWithDirection(emittedBlock, facing)), "lightpower", (int) (power - 1)))),
 							3);
 				} else {

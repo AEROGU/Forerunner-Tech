@@ -14,9 +14,9 @@ public class FluidBarrierOnUpdateProcedure {
 		BlockState l_blockstate = Blocks.AIR.defaultBlockState();
 		BlockState curBlock = Blocks.AIR.defaultBlockState();
 		BlockState emitterBlockOff = Blocks.AIR.defaultBlockState();
-		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER_ON.get().defaultBlockState();
-		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER.get().defaultBlockState();
-		emittedBlock = ForerunnerBridgesAndBarriersModBlocks.FLUID_BARRIER.get().defaultBlockState();
+		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER_ON.defaultBlockState();
+		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER.defaultBlockState();
+		emittedBlock = ForerunnerBridgesAndBarriersModBlocks.FLUID_BARRIER.defaultBlockState();
 		l_blockstate = blockstate;
 		curBlock = (world.getBlockState(BlockPos.containing(x, y, z)));
 		OnEmittedBlockUpdateProcedure.execute(world, x, y, z, blockstate, emittedBlock, emitterBlock);

@@ -1,5 +1,7 @@
 package net.mcreator.fbab.block;
 
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -24,8 +26,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.procedures.LightBridgeEmitterOnRedstoneEventProcedure;
 import net.mcreator.fbab.procedures.LightBridgeEmitterOnBlockUpdateProcedure;
-
-import javax.annotation.Nullable;
 
 import java.util.function.Function;
 
@@ -106,11 +106,6 @@ public class LightBridgeEmitterBlock extends Block implements SimpleWaterloggedB
 			scheduledTickAccess.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
 		return super.updateShape(state, world, scheduledTickAccess, currentPos, facing, facingPos, facingState, random);
-	}
-
-	@Override
-	public boolean canConnectRedstone(BlockState state, BlockGetter world, BlockPos pos, Direction side) {
-		return true;
 	}
 
 	@Override
