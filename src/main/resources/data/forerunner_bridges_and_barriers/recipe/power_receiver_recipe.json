@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "ebe"
+  ],
+  "key": {
+    "a": "minecraft:iron_ingot",
+    "b": "minecraft:daylight_detector",
+    "c": "minecraft:repeater",
+    "d": "minecraft:comparator",
+    "e": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "forerunner_bridges_and_barriers:power_receiver",
+    "count": 2
+  }
+}

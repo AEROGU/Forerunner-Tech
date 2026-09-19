@@ -1,55 +1,59 @@
-
 /*
  *    MCreator note: This file will be REGENERATED on each build.
  */
 package net.mcreator.fbab.init;
 
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.Block;
 
-import net.mcreator.fbab.block.RedstoneWireonBlock;
-import net.mcreator.fbab.block.RedstoneWireBlockBlock;
-import net.mcreator.fbab.block.PowerReceiverONBlock;
-import net.mcreator.fbab.block.PowerReceiverBlock;
-import net.mcreator.fbab.block.LightWireBlock;
-import net.mcreator.fbab.block.LightPowerEmitterONBlock;
-import net.mcreator.fbab.block.LightPowerEmitterBlock;
-import net.mcreator.fbab.block.LightFluidBarrierEmitterOnBlock;
-import net.mcreator.fbab.block.LightFluidBarrierEmitterBlock;
-import net.mcreator.fbab.block.LightBridgeEmitterONBlock;
-import net.mcreator.fbab.block.LightBridgeEmitterBlock;
-import net.mcreator.fbab.block.LightBridgeBlock;
-import net.mcreator.fbab.block.LightBarrierEmitterOnBlock;
-import net.mcreator.fbab.block.LightBarrierEmitterBlock;
-import net.mcreator.fbab.block.LightBarrierBlock;
-import net.mcreator.fbab.block.FluidBarrierBlock;
+import net.mcreator.fbab.block.*;
 import net.mcreator.fbab.ForerunnerBridgesAndBarriersMod;
 
+import java.util.function.Function;
+
 public class ForerunnerBridgesAndBarriersModBlocks {
-	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, ForerunnerBridgesAndBarriersMod.MODID);
-	public static final RegistryObject<Block> LIGHT_BRIDGE = REGISTRY.register("light_bridge", () -> new LightBridgeBlock());
-	public static final RegistryObject<Block> LIGHT_BRIDGE_EMITTER = REGISTRY.register("light_bridge_emitter", () -> new LightBridgeEmitterBlock());
-	public static final RegistryObject<Block> LIGHT_BRIDGE_EMITTER_ON = REGISTRY.register("light_bridge_emitter_on",
-			() -> new LightBridgeEmitterONBlock());
-	public static final RegistryObject<Block> FLUID_BARRIER = REGISTRY.register("fluid_barrier", () -> new FluidBarrierBlock());
-	public static final RegistryObject<Block> REDSTONE_WIRE_BLOCK = REGISTRY.register("redstone_wire_block", () -> new RedstoneWireBlockBlock());
-	public static final RegistryObject<Block> POWER_RECEIVER_ON = REGISTRY.register("power_receiver_on", () -> new PowerReceiverONBlock());
-	public static final RegistryObject<Block> POWER_RECEIVER = REGISTRY.register("power_receiver", () -> new PowerReceiverBlock());
-	public static final RegistryObject<Block> LIGHT_WIRE = REGISTRY.register("light_wire", () -> new LightWireBlock());
-	public static final RegistryObject<Block> REDSTONE_WIREON = REGISTRY.register("redstone_wireon", () -> new RedstoneWireonBlock());
-	public static final RegistryObject<Block> LIGHT_POWER_EMITTER = REGISTRY.register("light_power_emitter", () -> new LightPowerEmitterBlock());
-	public static final RegistryObject<Block> LIGHT_POWER_EMITTER_ON = REGISTRY.register("light_power_emitter_on",
-			() -> new LightPowerEmitterONBlock());
-	public static final RegistryObject<Block> LIGHT_BARRIER_EMITTER = REGISTRY.register("light_barrier_emitter",
-			() -> new LightBarrierEmitterBlock());
-	public static final RegistryObject<Block> LIGHT_BARRIER_EMITTER_ON = REGISTRY.register("light_barrier_emitter_on",
-			() -> new LightBarrierEmitterOnBlock());
-	public static final RegistryObject<Block> LIGHT_BARRIER = REGISTRY.register("light_barrier", () -> new LightBarrierBlock());
-	public static final RegistryObject<Block> LIGHT_FLUID_BARRIER_EMITTER = REGISTRY.register("light_fluid_barrier_emitter",
-			() -> new LightFluidBarrierEmitterBlock());
-	public static final RegistryObject<Block> LIGHT_FLUID_BARRIER_EMITTER_ON = REGISTRY.register("light_fluid_barrier_emitter_on",
-			() -> new LightFluidBarrierEmitterOnBlock());
+	public static final DeferredRegister.Blocks REGISTRY = DeferredRegister.createBlocks(ForerunnerBridgesAndBarriersMod.MODID);
+	public static final DeferredBlock<Block> LIGHT_BRIDGE;
+	public static final DeferredBlock<Block> LIGHT_BRIDGE_EMITTER;
+	public static final DeferredBlock<Block> LIGHT_BRIDGE_EMITTER_ON;
+	public static final DeferredBlock<Block> FLUID_BARRIER;
+	public static final DeferredBlock<Block> REDSTONE_WIRE_BLOCK;
+	public static final DeferredBlock<Block> POWER_RECEIVER_ON;
+	public static final DeferredBlock<Block> POWER_RECEIVER;
+	public static final DeferredBlock<Block> LIGHT_WIRE;
+	public static final DeferredBlock<Block> REDSTONE_WIREON;
+	public static final DeferredBlock<Block> LIGHT_POWER_EMITTER;
+	public static final DeferredBlock<Block> LIGHT_POWER_EMITTER_ON;
+	public static final DeferredBlock<Block> LIGHT_BARRIER_EMITTER;
+	public static final DeferredBlock<Block> LIGHT_BARRIER_EMITTER_ON;
+	public static final DeferredBlock<Block> LIGHT_BARRIER;
+	public static final DeferredBlock<Block> LIGHT_FLUID_BARRIER_EMITTER;
+	public static final DeferredBlock<Block> LIGHT_FLUID_BARRIER_EMITTER_ON;
+	static {
+		LIGHT_BRIDGE = register("light_bridge", LightBridgeBlock::new);
+		LIGHT_BRIDGE_EMITTER = register("light_bridge_emitter", LightBridgeEmitterBlock::new);
+		LIGHT_BRIDGE_EMITTER_ON = register("light_bridge_emitter_on", LightBridgeEmitterONBlock::new);
+		FLUID_BARRIER = register("fluid_barrier", FluidBarrierBlock::new);
+		REDSTONE_WIRE_BLOCK = register("redstone_wire_block", RedstoneWireBlockBlock::new);
+		POWER_RECEIVER_ON = register("power_receiver_on", PowerReceiverONBlock::new);
+		POWER_RECEIVER = register("power_receiver", PowerReceiverBlock::new);
+		LIGHT_WIRE = register("light_wire", LightWireBlock::new);
+		REDSTONE_WIREON = register("redstone_wireon", RedstoneWireonBlock::new);
+		LIGHT_POWER_EMITTER = register("light_power_emitter", LightPowerEmitterBlock::new);
+		LIGHT_POWER_EMITTER_ON = register("light_power_emitter_on", LightPowerEmitterONBlock::new);
+		LIGHT_BARRIER_EMITTER = register("light_barrier_emitter", LightBarrierEmitterBlock::new);
+		LIGHT_BARRIER_EMITTER_ON = register("light_barrier_emitter_on", LightBarrierEmitterOnBlock::new);
+		LIGHT_BARRIER = register("light_barrier", LightBarrierBlock::new);
+		LIGHT_FLUID_BARRIER_EMITTER = register("light_fluid_barrier_emitter", LightFluidBarrierEmitterBlock::new);
+		LIGHT_FLUID_BARRIER_EMITTER_ON = register("light_fluid_barrier_emitter_on", LightFluidBarrierEmitterOnBlock::new);
+	}
+
+	// Start of user code block custom blocks
+	// End of user code block custom blocks
+	private static <B extends Block> DeferredBlock<B> register(String name, Function<BlockBehaviour.Properties, ? extends B> supplier) {
+		return REGISTRY.registerBlock(name, supplier);
+	}
 }

@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "forerunner_bridges_and_barriers:blocks/fluid_barrier"
+}

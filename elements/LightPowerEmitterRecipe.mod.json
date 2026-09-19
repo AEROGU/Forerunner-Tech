@@ -1,45 +1,28 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
-    "xpReward": 0.0,
-    "cookingTime": 200,
     "recipeRetstackSize": 2,
     "group": "",
+    "unlockingItems": [],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Blocks.GLASS"
-      },
-      {
-        "value": "Blocks.GLASS"
-      },
-      {
-        "value": "Blocks.GLASS"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Items.AMETHYST_SHARD"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.GOLD_INGOT"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      }
+      "Blocks.GLASS",
+      "Blocks.GLASS",
+      "Blocks.GLASS",
+      "Items.REPEATER",
+      "Items.AMETHYST_SHARD",
+      "Items.REPEATER",
+      "Items.IRON_INGOT",
+      "Items.GOLD_INGOT",
+      "Items.IRON_INGOT"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:LightPowerEmitter"
-    },
+    "recipeReturnStack": "CUSTOM:LightPowerEmitter",
     "name": "light_power_emitter_recipe",
     "namespace": "mod"
   }

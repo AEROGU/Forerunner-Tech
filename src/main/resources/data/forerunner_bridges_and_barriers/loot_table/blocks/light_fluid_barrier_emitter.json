@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "forerunner_bridges_and_barriers:blocks/light_fluid_barrier_emitter",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "forerunner_bridges_and_barriers:light_fluid_barrier_emitter"
+        }
+      ]
+    }
+  ]
+}

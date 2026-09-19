@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="forerunner_bridges_and_barriers"
+version="2.0.0"
+displayName="Forerunner Bridges and Barriers"
+displayURL="https://github.com/AEROGU/Forerunner-Tech"
+logoFile="logo.png"
+credits="Arturo Enrique Rosas Guti\u00E9rrez (AEROGU). Created using mod maker MCreator - https://mcreator.net/about"
+authors="Arturo Enrique Rosas Guti\u00E9rrez (RGMods)"
+description="Halo-inspired hard light bridges, barriers and long-distance redstone.\nPuentes y barreras de luz dura inspirados en Halo, y redstone a larga distancia.\n\nBy / Por: Arturo Enrique Rosas Guti\u00E9rrez (AEROGU)\nAll rights reserved. / Todos los derechos reservados."
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+
+# Start of user code block custom mixins
+# End of user code block custom mixins
+
+[[dependencies.forerunner_bridges_and_barriers]]
+    modId="neoforge"
+    type="required"
+    versionRange="[26.1.2.95,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.forerunner_bridges_and_barriers]]
+    modId="minecraft"
+    type="required"
+    versionRange="[26.1.2]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

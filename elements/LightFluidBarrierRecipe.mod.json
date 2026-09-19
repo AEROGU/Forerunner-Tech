@@ -1,45 +1,28 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
-    "xpReward": 0.0,
-    "cookingTime": 200,
     "recipeRetstackSize": 3,
     "group": "",
+    "unlockingItems": [],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Items.REDSTONE"
-      },
-      {
-        "value": "Blocks.GLASS"
-      },
-      {
-        "value": "Items.REDSTONE"
-      },
-      {
-        "value": "Blocks.PRISMARINE"
-      },
-      {
-        "value": "Items.AMETHYST_SHARD"
-      },
-      {
-        "value": "Blocks.PRISMARINE"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      }
+      "Items.REDSTONE",
+      "Blocks.GLASS",
+      "Items.REDSTONE",
+      "Blocks.PRISMARINE",
+      "Items.AMETHYST_SHARD",
+      "Blocks.PRISMARINE",
+      "Items.IRON_INGOT",
+      "Items.REPEATER",
+      "Items.IRON_INGOT"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:LightFluidBarrierEmitter"
-    },
+    "recipeReturnStack": "CUSTOM:LightFluidBarrierEmitter",
     "name": "light_fluid_barrier_recipe",
     "namespace": "mod"
   }

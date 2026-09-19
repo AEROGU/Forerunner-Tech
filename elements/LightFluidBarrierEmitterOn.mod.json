@@ -1,11 +1,11 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "block",
   "definition": {
     "texture": "cable_apagado_down",
     "textureTop": "cable_apagado_up",
     "textureLeft": "cable_apagado_right",
-    "textureFront": "lightsectionbasecolor",
+    "textureFront": "minecraft:beacon",
     "textureRight": "cable_apagado_left",
     "textureBack": "forerunner_metal_hd",
     "renderType": 10,
@@ -14,8 +14,12 @@
     "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
+    "states": [],
+    "animations": [],
     "itemTexture": "",
     "particleTexture": "",
+    "blockSetType": "OAK",
+    "leavesParticleChance": 0.0,
     "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": false,
@@ -33,33 +37,36 @@
         "subtract": false
       }
     ],
+    "customProperties": [],
     "name": "Soft light barrier emitter: Activated",
-    "specialInfo": [
-      "It emits an intelligent phase barrier",
-      "it allows the passage of entities",
-      "but not fluids."
-    ],
+    "specialInformation": {
+      "fixedValue": [
+        "It emits an intelligent phase barrier",
+        "it allows the passage of entities",
+        "but not fluids."
+      ]
+    },
     "hardness": 55.0,
     "resistance": 55.0,
     "hasGravity": false,
     "isWaterloggable": false,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "hasBlockItem": true,
+    "maxStackSize": 64,
+    "rarity": "COMMON",
+    "immuneToFire": false,
+    "creativeTabs": [],
     "destroyTool": "Not specified",
-    "customDrop": {
-      "value": ""
-    },
+    "customDrop": "",
     "dropAmount": 1,
+    "xpAmountMin": 0,
+    "xpAmountMax": 0,
     "useLootTableForDrops": false,
     "requiresCorrectTool": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
+    "hasCustomOpacity": false,
     "lightOpacity": 15,
-    "material": {
-      "value": "IRON"
-    },
     "tickRate": 10,
     "tickRandomly": false,
     "isReplaceable": false,
@@ -68,11 +75,12 @@
       "fixedValue": 15.0
     },
     "colorOnMap": "DEFAULT",
-    "creativePickItem": {
-      "value": ""
-    },
+    "noteBlockInstrument": "harp",
+    "creativePickItem": "",
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",
+    "strippingResult": "",
+    "ignitedByLava": false,
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,
@@ -81,37 +89,25 @@
     "jumpFactor": 1.0,
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
+    "soundOnStep": "METAL",
     "isCustomSoundType": false,
-    "soundOnStep": {
-      "value": "METAL"
+    "breakSound": "",
+    "fallSound": "",
+    "hitSound": "",
+    "placeSound": "",
+    "stepSound": "",
+    "luminance": {
+      "fixedValue": 0.0
     },
-    "breakSound": {
-      "value": ""
-    },
-    "fallSound": {
-      "value": ""
-    },
-    "hitSound": {
-      "value": ""
-    },
-    "placeSound": {
-      "value": ""
-    },
-    "stepSound": {
-      "value": ""
-    },
-    "luminance": 0,
     "unbreakable": false,
-    "breakHarvestLevel": 4,
-    "spawnParticles": false,
-    "particleToSpawn": {
-      "value": "EXPLOSION_NORMAL"
+    "vanillaToolTier": "DIAMOND",
+    "isBonemealable": false,
+    "sensitiveToVibration": false,
+    "vibrationalEvents": [],
+    "vibrationSensitivityRadius": {
+      "fixedValue": 7.0
     },
-    "particleSpawningShape": "Spread",
-    "particleSpawningRadious": 0.5,
-    "particleAmount": 4,
     "hasInventory": false,
-    "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
     "inventorySize": 1,
     "inventoryStackSize": 64,
@@ -127,19 +123,11 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onBlockAdded": {
-      "name": "LightFluidBarrierEmitterOnBlockUpdate"
-    },
-    "onNeighbourBlockChanges": {
-      "name": "LightFluidBarrierEmitterOnBlockUpdate"
-    },
-    "onDestroyedByPlayer": {
-      "name": "OnEmitterOnDestroyed"
-    },
-    "onRedstoneOff": {
-      "name": "LightFluidBarrierEmitterOnRedstoneEvent"
-    },
-    "spawnWorldTypes": [],
+    "onBlockAdded": "LightFluidBarrierEmitterOnBlockUpdate",
+    "onNeighbourBlockChanges": "LightFluidBarrierEmitterOnBlockUpdate",
+    "onDestroyedByPlayer": "OnEmitterOnDestroyed",
+    "onRedstoneOff": "LightFluidBarrierEmitterOnRedstoneEvent",
+    "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [],
     "generationShape": "UNIFORM",

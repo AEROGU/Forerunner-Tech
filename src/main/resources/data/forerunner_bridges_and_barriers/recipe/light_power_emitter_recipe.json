@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aaa",
+    "bcb",
+    "ded"
+  ],
+  "key": {
+    "a": "minecraft:glass",
+    "b": "minecraft:repeater",
+    "c": "minecraft:amethyst_shard",
+    "d": "minecraft:iron_ingot",
+    "e": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "forerunner_bridges_and_barriers:light_power_emitter",
+    "count": 2
+  }
+}

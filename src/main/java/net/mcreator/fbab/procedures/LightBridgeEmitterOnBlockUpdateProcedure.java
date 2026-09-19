@@ -18,7 +18,7 @@ public class LightBridgeEmitterOnBlockUpdateProcedure {
 		emittedBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE.get().defaultBlockState();
 		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER_ON.get().defaultBlockState();
 		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_BRIDGE_EMITTER.get().defaultBlockState();
-		block = (world.getBlockState(new BlockPos(x, y, z)));
+		block = (world.getBlockState(BlockPos.containing(x, y, z)));
 		OnEmitterBlockUpdateProcedure.execute(world, x, y, z, blockstate, emittedBlock, emitterBlock, emitterBlockOff);
 	}
 }

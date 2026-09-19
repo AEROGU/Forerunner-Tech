@@ -1,11 +1,9 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "tab",
   "definition": {
     "name": "Forerunner Tech",
-    "icon": {
-      "value": "CUSTOM:LightBridgeEmitter"
-    },
+    "icon": "CUSTOM:LightBridgeEmitter",
     "showSearch": true
   }
 }

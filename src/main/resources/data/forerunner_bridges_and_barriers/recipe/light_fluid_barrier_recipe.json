@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "efe"
+  ],
+  "key": {
+    "a": "minecraft:redstone",
+    "b": "minecraft:glass",
+    "c": "minecraft:prismarine",
+    "d": "minecraft:amethyst_shard",
+    "e": "minecraft:iron_ingot",
+    "f": "minecraft:repeater"
+  },
+  "result": {
+    "id": "forerunner_bridges_and_barriers:light_fluid_barrier_emitter",
+    "count": 3
+  }
+}

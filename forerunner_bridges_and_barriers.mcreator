@@ -3,87 +3,155 @@
     {
       "name": "LightBridge",
       "type": "block",
-      "sortid": 8,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "light_bridge",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/fbab/block/LightBridgeBlock.java",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_bridge.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_bridge.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_bridge.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_bridge.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_bridge.json"
+        ]
+      },
       "path": "~/LightBridges"
     },
     {
       "name": "LightBridgeEmitter",
       "type": "block",
-      "sortid": 9,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_bridge_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_bridge_emitter.json",
+          "src/main/java/net/mcreator/fbab/block/LightBridgeEmitterBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_bridge_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_bridge_emitter.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_bridge_emitter.json"
+        ]
+      },
       "path": "~/LightBridges"
     },
     {
       "name": "LightBridgeEmitterON",
       "type": "block",
-      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_on",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_bridge_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_bridge_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_bridge_emitter_on.json",
+          "src/main/java/net/mcreator/fbab/block/LightBridgeEmitterONBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_bridge_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_bridge_emitter_on.json"
+        ]
+      },
       "path": "~/LightBridges"
     },
     {
       "name": "LightBridgeEmitterRecipe",
       "type": "recipe",
-      "sortid": 13,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/light_brisge_emitter.json"
+        ]
+      },
       "path": "~/LightBridges"
     },
     {
       "name": "ForerunnerTech",
       "type": "tab",
-      "sortid": 15,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "forerunner_tech"
+      "registry_name": "forerunner_tech",
+      "metadata": {
+        "files": []
+      }
     },
     {
       "name": "FluidBarrier",
       "type": "block",
-      "sortid": 15,
       "compiles": true,
       "locked_code": true,
       "registry_name": "fluid_barrier",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/fluid_barrier.json",
+          "src/main/java/net/mcreator/fbab/block/FluidBarrierBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/fluid_barrier.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/fluid_barrier.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/fluid_barrier.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/fluid_barrier.json"
+        ]
+      },
       "path": "~/LightFluidBarrier"
     },
     {
       "name": "RedstoneWireBlock",
       "type": "block",
-      "sortid": 16,
       "compiles": true,
       "locked_code": false,
       "registry_name": "redstone_wire_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/redstone_wire_block.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/redstone_wire_block.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/redstone_wire_block.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/redstone_wire_block.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/redstone_wire_block.json",
+          "src/main/java/net/mcreator/fbab/block/RedstoneWireBlockBlock.java"
+        ]
+      },
       "path": "~/RedstonWire"
     },
     {
       "name": "PowerReceiverON",
       "type": "block",
-      "sortid": 19,
       "compiles": true,
       "locked_code": false,
       "registry_name": "power_receiver_on",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/power_receiver_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/power_receiver_on.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/power_receiver_on.json",
+          "src/main/java/net/mcreator/fbab/block/PowerReceiverONBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/power_receiver_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/power_receiver_on.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "PowerReceiver",
       "type": "block",
-      "sortid": 20,
       "compiles": true,
       "locked_code": false,
       "registry_name": "power_receiver",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/power_receiver.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/power_receiver.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/power_receiver.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/power_receiver.json",
+          "src/main/java/net/mcreator/fbab/block/PowerReceiverBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/power_receiver.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "Update_PowerReceiver",
       "type": "procedure",
-      "sortid": 21,
       "compiles": true,
       "locked_code": false,
       "registry_name": "update_power_receiver",
@@ -105,6 +173,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/Update_PowerReceiverProcedure.java"
         ]
       },
       "path": "~/LightWire_and_PowerReceiver"
@@ -112,141 +183,233 @@
     {
       "name": "LightWire",
       "type": "block",
-      "sortid": 22,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "light_wire",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_wire.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_wire.json",
+          "src/main/java/net/mcreator/fbab/block/LightWireBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_wire.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_wire.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_wire.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "RedstoneWireon",
       "type": "block",
-      "sortid": 23,
       "compiles": true,
       "locked_code": false,
       "registry_name": "redstone_wireon",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/redstone_wireon.json",
+          "src/main/java/net/mcreator/fbab/block/RedstoneWireonBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/redstone_wireon.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/redstone_wireon.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/redstone_wireon.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/redstone_wireon.json"
+        ]
+      },
       "path": "~/RedstonWire"
     },
     {
       "name": "LightPowerEmitter",
       "type": "block",
-      "sortid": 24,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_power_emitter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/fbab/block/LightPowerEmitterBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_power_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_power_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_power_emitter.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_power_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_power_emitter.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "LightPowerEmitterON",
       "type": "block",
-      "sortid": 27,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_power_emitter_on",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/fbab/block/LightPowerEmitterONBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_power_emitter_on.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_power_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_power_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_power_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_power_emitter_on.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "LightBarrierEmitter",
       "type": "block",
-      "sortid": 32,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_emitter",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_barrier_emitter.json",
+          "src/main/java/net/mcreator/fbab/block/LightBarrierEmitterBlock.java",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_barrier_emitter.json"
+        ]
+      },
       "path": "~/LightBarriers"
     },
     {
       "name": "LightBarrierEmitterOn",
       "type": "block",
-      "sortid": 33,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_emitter_on",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_barrier_emitter_on.json",
+          "src/main/java/net/mcreator/fbab/block/LightBarrierEmitterOnBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_barrier_emitter_on.json"
+        ]
+      },
       "path": "~/LightBarriers"
     },
     {
       "name": "LightBarrierEmitterRecipe",
       "type": "recipe",
-      "sortid": 34,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_emitter_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/light_barrier_emitter_recipe.json"
+        ]
+      },
       "path": "~/LightBarriers"
     },
     {
       "name": "LightBridgeEmitterRecipe2",
       "type": "recipe",
-      "sortid": 35,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_recipe_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/light_bridge_emitter_recipe_2.json"
+        ]
+      },
       "path": "~/LightBridges"
     },
     {
       "name": "LightBarrier",
       "type": "block",
-      "sortid": 36,
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "light_barrier",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_barrier.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_barrier.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_barrier.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_barrier.json",
+          "src/main/java/net/mcreator/fbab/block/LightBarrierBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_barrier.json"
+        ]
+      },
       "path": "~/LightBarriers"
     },
     {
       "name": "PowerReceiverRecipe",
       "type": "recipe",
-      "sortid": 44,
       "compiles": true,
       "locked_code": false,
       "registry_name": "power_receiver_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/power_receiver_recipe.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "LightPowerEmitterRecipe",
       "type": "recipe",
-      "sortid": 45,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_power_emitter_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/light_power_emitter_recipe.json"
+        ]
+      },
       "path": "~/LightWire_and_PowerReceiver"
     },
     {
       "name": "LightFluidBarrierEmitter",
       "type": "block",
-      "sortid": 46,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_fluid_barrier_emitter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/fbab/block/LightFluidBarrierEmitterBlock.java",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_fluid_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_fluid_barrier_emitter.json",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_fluid_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_fluid_barrier_emitter.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_fluid_barrier_emitter.json"
+        ]
+      },
       "path": "~/LightFluidBarrier"
     },
     {
       "name": "LightFluidBarrierEmitterOn",
       "type": "block",
-      "sortid": 47,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_fluid_barrier_emitter_on",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/item/light_fluid_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/blockstates/light_fluid_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/models/block/light_fluid_barrier_emitter_on.json",
+          "src/main/java/net/mcreator/fbab/block/LightFluidBarrierEmitterOnBlock.java",
+          "src/main/resources/data/forerunner_bridges_and_barriers/loot_table/blocks/light_fluid_barrier_emitter_on.json",
+          "src/main/resources/assets/forerunner_bridges_and_barriers/items/light_fluid_barrier_emitter_on.json"
+        ]
+      },
       "path": "~/LightFluidBarrier"
     },
     {
       "name": "LightFluidBarrierRecipe",
       "type": "recipe",
-      "sortid": 49,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_fluid_barrier_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/forerunner_bridges_and_barriers/recipe/light_fluid_barrier_recipe.json"
+        ]
+      },
       "path": "~/LightFluidBarrier"
-    },
-    {
-      "name": "ModBlockProperties",
-      "type": "code",
-      "sortid": 50,
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "mod_block_properties"
     },
     {
       "name": "LightBridgeEmitterOnRedstoneEvent",
       "type": "procedure",
-      "sortid": 51,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_on_redstone_event",
@@ -268,6 +431,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBridgeEmitterOnRedstoneEventProcedure.java"
         ]
       },
       "path": "~/LightBridges"
@@ -275,7 +441,6 @@
     {
       "name": "LightBridgeOnUpdate",
       "type": "procedure",
-      "sortid": 53,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_on_update",
@@ -301,6 +466,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBridgeOnUpdateProcedure.java"
         ]
       },
       "path": "~/LightBridges"
@@ -308,7 +476,6 @@
     {
       "name": "OnEmittedBlockUpdate",
       "type": "procedure",
-      "sortid": 54,
       "compiles": true,
       "locked_code": false,
       "registry_name": "on_emitted_block_update",
@@ -342,13 +509,15 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/OnEmittedBlockUpdateProcedure.java"
         ]
       }
     },
     {
       "name": "OnEmitterBlockUpdate",
       "type": "procedure",
-      "sortid": 55,
       "compiles": true,
       "locked_code": false,
       "registry_name": "on_emitter_block_update",
@@ -386,13 +555,15 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/OnEmitterBlockUpdateProcedure.java"
         ]
       }
     },
     {
       "name": "OnEmitterRedstoneEvent",
       "type": "procedure",
-      "sortid": 56,
       "compiles": true,
       "locked_code": false,
       "registry_name": "on_emitter_redstone_event",
@@ -422,13 +593,15 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/OnEmitterRedstoneEventProcedure.java"
         ]
       }
     },
     {
       "name": "LightBridgeEmitterOnBlockUpdate",
       "type": "procedure",
-      "sortid": 57,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_bridge_emitter_on_block_update",
@@ -454,6 +627,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBridgeEmitterOnBlockUpdateProcedure.java"
         ]
       },
       "path": "~/LightBridges"
@@ -461,7 +637,6 @@
     {
       "name": "LightBarrierEmitterOnBlockUpdate",
       "type": "procedure",
-      "sortid": 58,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_emitter_on_block_update",
@@ -487,6 +662,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBarrierEmitterOnBlockUpdateProcedure.java"
         ]
       },
       "path": "~/LightBarriers"
@@ -494,7 +672,6 @@
     {
       "name": "LightBarrierEmitterOnRedstoneEvent",
       "type": "procedure",
-      "sortid": 59,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_emitter_on_redstone_event",
@@ -516,6 +693,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBarrierEmitterOnRedstoneEventProcedure.java"
         ]
       },
       "path": "~/LightBarriers"
@@ -523,7 +703,6 @@
     {
       "name": "LightBarrierOnUpdate",
       "type": "procedure",
-      "sortid": 60,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_barrier_on_update",
@@ -549,6 +728,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightBarrierOnUpdateProcedure.java"
         ]
       },
       "path": "~/LightBarriers"
@@ -556,7 +738,6 @@
     {
       "name": "LightPowerEmitterOnBlockUpdate",
       "type": "procedure",
-      "sortid": 61,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_power_emitter_on_block_update",
@@ -582,6 +763,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightPowerEmitterOnBlockUpdateProcedure.java"
         ]
       },
       "path": "~/LightWire_and_PowerReceiver"
@@ -589,7 +773,6 @@
     {
       "name": "LightPowerEmitterOnRedstoneEvent",
       "type": "procedure",
-      "sortid": 62,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_power_emitter_on_redstone_event",
@@ -611,6 +794,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightPowerEmitterOnRedstoneEventProcedure.java"
         ]
       },
       "path": "~/LightWire_and_PowerReceiver"
@@ -618,7 +804,6 @@
     {
       "name": "LightWireOnUpdate",
       "type": "procedure",
-      "sortid": 63,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_wire_on_update",
@@ -644,6 +829,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightWireOnUpdateProcedure.java"
         ]
       },
       "path": "~/LightWire_and_PowerReceiver"
@@ -651,7 +839,6 @@
     {
       "name": "LightFluidBarrierEmitterOnBlockUpdate",
       "type": "procedure",
-      "sortid": 64,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_fluid_barrier_emitter_on_block_update",
@@ -677,6 +864,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightFluidBarrierEmitterOnBlockUpdateProcedure.java"
         ]
       },
       "path": "~/LightFluidBarrier"
@@ -684,7 +874,6 @@
     {
       "name": "LightFluidBarrierEmitterOnRedstoneEvent",
       "type": "procedure",
-      "sortid": 65,
       "compiles": true,
       "locked_code": false,
       "registry_name": "light_fluid_barrier_emitter_on_redstone_event",
@@ -706,6 +895,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightFluidBarrierEmitterOnRedstoneEventProcedure.java"
         ]
       },
       "path": "~/LightFluidBarrier"
@@ -713,7 +905,6 @@
     {
       "name": "FluidBarrierOnUpdate",
       "type": "procedure",
-      "sortid": 66,
       "compiles": true,
       "locked_code": false,
       "registry_name": "fluid_barrier_on_update",
@@ -739,6 +930,9 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/FluidBarrierOnUpdateProcedure.java"
         ]
       },
       "path": "~/LightFluidBarrier"
@@ -746,7 +940,6 @@
     {
       "name": "OnEmitterOnDestroyed",
       "type": "procedure",
-      "sortid": 67,
       "compiles": true,
       "locked_code": false,
       "registry_name": "on_emitter_on_destroyed",
@@ -768,13 +961,15 @@
             "name": "world",
             "type": "world"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/OnEmitterOnDestroyedProcedure.java"
         ]
       }
     },
     {
       "name": "IsEmittedBlock",
       "type": "procedure",
-      "sortid": 69,
       "compiles": true,
       "locked_code": false,
       "registry_name": "is_emitted_block",
@@ -785,17 +980,30 @@
             "name": "blockstate",
             "type": "blockstate"
           }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/IsEmittedBlockProcedure.java"
         ]
       }
     },
     {
-      "name": "LightBridgeEmitterRecipeIC2",
-      "type": "recipe",
-      "sortid": 70,
+      "name": "LightRank",
+      "type": "procedure",
       "compiles": true,
-      "locked_code": true,
-      "registry_name": "light_bridge_emitter_recipe_ic_2",
-      "path": "~/LightBridges"
+      "locked_code": false,
+      "registry_name": "light_rank",
+      "metadata": {
+        "return_type": "number",
+        "dependencies": [
+          {
+            "name": "blockstate",
+            "type": "blockstate"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/fbab/procedures/LightRankProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -832,6 +1040,32 @@
       "subtitle": "Energy bridge emitter destroyed"
     }
   ],
+  "tag_elements": {
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~LightFluidBarrierEmitter@CUSTOM:LightFluidBarrierEmitter",
+      "~LightBarrierEmitterOn@CUSTOM:LightBarrierEmitterOn",
+      "~LightBarrierEmitter@CUSTOM:LightBarrierEmitter",
+      "~LightPowerEmitter@CUSTOM:LightPowerEmitter",
+      "~PowerReceiver@CUSTOM:PowerReceiver",
+      "~PowerReceiverON@CUSTOM:PowerReceiverON",
+      "~LightBridgeEmitter@CUSTOM:LightBridgeEmitter"
+    ],
+    "BLOCKS:minecraft:needs_iron_tool": [
+      "~LightFluidBarrierEmitter@CUSTOM:LightFluidBarrierEmitter",
+      "~LightBarrierEmitter@CUSTOM:LightBarrierEmitter",
+      "~LightPowerEmitter@CUSTOM:LightPowerEmitter",
+      "~PowerReceiver@CUSTOM:PowerReceiver",
+      "~PowerReceiverON@CUSTOM:PowerReceiverON",
+      "~LightBridgeEmitter@CUSTOM:LightBridgeEmitter"
+    ],
+    "BLOCKS:minecraft:replaceable": [
+      "~LightWire@CUSTOM:LightWire"
+    ],
+    "BLOCKS:minecraft:needs_diamond_tool": [
+      "~LightBarrierEmitterOn@CUSTOM:LightBarrierEmitterOn"
+    ]
+  },
+  "tab_element_order": {},
   "language_map": {
     "en_us": {
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard light bridge emitter",
@@ -855,7 +1089,31 @@
       "itemGroup.tabforerunner_tech": "Forerunner Tech",
       "block.forerunner_bridges_and_barriers.light_power_emitter": "Light power emitter",
       "block.forerunner_bridges_and_barriers.power_receiver_on": "Light power receiver: Activated",
-      "block.forerunner_bridges_and_barriers.power_receiver": "Light power receiver"
+      "block.forerunner_bridges_and_barriers.power_receiver": "Light power receiver",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard light bridge emitter",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Hard light bridge emitter: Activated",
+      "item_group.forerunner_bridges_and_barriers.forerunner_tech": "Forerunner Tech",
+      "item.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone wire",
+      "item.forerunner_bridges_and_barriers.power_receiver_on": "Light power receiver: Activated",
+      "item.forerunner_bridges_and_barriers.power_receiver": "Light power receiver",
+      "item.forerunner_bridges_and_barriers.redstone_wireon": "Redstone wire: Activated",
+      "item.forerunner_bridges_and_barriers.light_power_emitter": "Light power emitter",
+      "item.forerunner_bridges_and_barriers.light_power_emitter_on": "Light power emitter: Activated",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter": "Hard light barrier emitter",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Hard light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_0": "It emits an intelligent phase barrier",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_1": "it allows the passage of entities",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_2": "but not fluids.",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter": "Soft light barrier emitter",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_2": "but not fluids.",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_1": "it allows the passage of entities",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on": "Soft light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_0": "It emits an intelligent phase barrier",
+      "item.forerunner_bridges_and_barriers.light_bridge": "Hard light bridge",
+      "item.forerunner_bridges_and_barriers.fluid_barrier": "Soft light barrier",
+      "item.forerunner_bridges_and_barriers.light_wire": "Light power",
+      "block.forerunner_bridges_and_barriers.light_wire.description_0": "You are not supposed to have this item!",
+      "item.forerunner_bridges_and_barriers.light_barrier": "Hard light barrier"
     },
     "es_ar": {
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de luz dura",
@@ -879,7 +1137,31 @@
       "itemGroup.tabforerunner_tech": "Tecnología Forerunner",
       "block.forerunner_bridges_and_barriers.power_receiver_on": "Receptor de energía luminosa: Activado",
       "block.forerunner_bridges_and_barriers.light_power_emitter": "Emisor de energía luminosa",
-      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa"
+      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard light bridge emitter",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Hard light bridge emitter: Activated",
+      "item_group.forerunner_bridges_and_barriers.forerunner_tech": "Forerunner Tech",
+      "item.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone wire",
+      "item.forerunner_bridges_and_barriers.power_receiver_on": "Light power receiver: Activated",
+      "item.forerunner_bridges_and_barriers.power_receiver": "Light power receiver",
+      "item.forerunner_bridges_and_barriers.redstone_wireon": "Redstone wire: Activated",
+      "item.forerunner_bridges_and_barriers.light_power_emitter": "Light power emitter",
+      "item.forerunner_bridges_and_barriers.light_power_emitter_on": "Light power emitter: Activated",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter": "Hard light barrier emitter",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Hard light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_0": "It emits an intelligent phase barrier",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_1": "it allows the passage of entities",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_2": "but not fluids.",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter": "Soft light barrier emitter",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_2": "but not fluids.",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_1": "it allows the passage of entities",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on": "Soft light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_0": "It emits an intelligent phase barrier",
+      "item.forerunner_bridges_and_barriers.light_bridge": "Hard light bridge",
+      "item.forerunner_bridges_and_barriers.fluid_barrier": "Soft light barrier",
+      "item.forerunner_bridges_and_barriers.light_wire": "Light power",
+      "block.forerunner_bridges_and_barriers.light_wire.description_0": "You are not supposed to have this item!",
+      "item.forerunner_bridges_and_barriers.light_barrier": "Hard light barrier"
     },
     "es_mx": {
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de luz dura",
@@ -903,7 +1185,31 @@
       "itemGroup.tabforerunner_tech": "Tecnología Forerunner",
       "block.forerunner_bridges_and_barriers.power_receiver_on": "Receptor de energía luminosa: Activado",
       "block.forerunner_bridges_and_barriers.light_power_emitter": "Emisor de energía luminosa",
-      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa"
+      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard light bridge emitter",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Hard light bridge emitter: Activated",
+      "item_group.forerunner_bridges_and_barriers.forerunner_tech": "Forerunner Tech",
+      "item.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone wire",
+      "item.forerunner_bridges_and_barriers.power_receiver_on": "Light power receiver: Activated",
+      "item.forerunner_bridges_and_barriers.power_receiver": "Light power receiver",
+      "item.forerunner_bridges_and_barriers.redstone_wireon": "Redstone wire: Activated",
+      "item.forerunner_bridges_and_barriers.light_power_emitter": "Light power emitter",
+      "item.forerunner_bridges_and_barriers.light_power_emitter_on": "Light power emitter: Activated",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter": "Hard light barrier emitter",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Hard light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_0": "It emits an intelligent phase barrier",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_1": "it allows the passage of entities",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_2": "but not fluids.",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter": "Soft light barrier emitter",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_2": "but not fluids.",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_1": "it allows the passage of entities",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on": "Soft light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_0": "It emits an intelligent phase barrier",
+      "item.forerunner_bridges_and_barriers.light_bridge": "Hard light bridge",
+      "item.forerunner_bridges_and_barriers.fluid_barrier": "Soft light barrier",
+      "item.forerunner_bridges_and_barriers.light_wire": "Light power",
+      "block.forerunner_bridges_and_barriers.light_wire.description_0": "You are not supposed to have this item!",
+      "item.forerunner_bridges_and_barriers.light_barrier": "Hard light barrier"
     },
     "es_es": {
       "block.forerunner_bridges_and_barriers.light_bridge_emitter": "Emisor de puente de luz dura",
@@ -927,8 +1233,45 @@
       "itemGroup.tabforerunner_tech": "Tecnología Forerunner",
       "block.forerunner_bridges_and_barriers.power_receiver_on": "Receptor de energía luminosa: Activado",
       "block.forerunner_bridges_and_barriers.light_power_emitter": "Emisor de energía luminosa",
-      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa"
+      "block.forerunner_bridges_and_barriers.power_receiver": "Receptor de energía luminosa",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter": "Hard light bridge emitter",
+      "item.forerunner_bridges_and_barriers.light_bridge_emitter_on": "Hard light bridge emitter: Activated",
+      "item_group.forerunner_bridges_and_barriers.forerunner_tech": "Forerunner Tech",
+      "item.forerunner_bridges_and_barriers.redstone_wire_block": "Redstone wire",
+      "item.forerunner_bridges_and_barriers.power_receiver_on": "Light power receiver: Activated",
+      "item.forerunner_bridges_and_barriers.power_receiver": "Light power receiver",
+      "item.forerunner_bridges_and_barriers.redstone_wireon": "Redstone wire: Activated",
+      "item.forerunner_bridges_and_barriers.light_power_emitter": "Light power emitter",
+      "item.forerunner_bridges_and_barriers.light_power_emitter_on": "Light power emitter: Activated",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter": "Hard light barrier emitter",
+      "item.forerunner_bridges_and_barriers.light_barrier_emitter_on": "Hard light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_0": "It emits an intelligent phase barrier",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_1": "it allows the passage of entities",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter.description_2": "but not fluids.",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter": "Soft light barrier emitter",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_2": "but not fluids.",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_1": "it allows the passage of entities",
+      "item.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on": "Soft light barrier emitter: Activated",
+      "block.forerunner_bridges_and_barriers.light_fluid_barrier_emitter_on.description_0": "It emits an intelligent phase barrier",
+      "item.forerunner_bridges_and_barriers.light_bridge": "Hard light bridge",
+      "item.forerunner_bridges_and_barriers.fluid_barrier": "Soft light barrier",
+      "item.forerunner_bridges_and_barriers.light_wire": "Light power",
+      "block.forerunner_bridges_and_barriers.light_wire.description_0": "You are not supposed to have this item!",
+      "item.forerunner_bridges_and_barriers.light_barrier": "Hard light barrier"
     }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mcreator/fbab/init/ForerunnerBridgesAndBarriersModBlocks.java",
+      "src/main/java/net/mcreator/fbab/init/ForerunnerBridgesAndBarriersModItems.java",
+      "src/main/resources/assets/forerunner_bridges_and_barriers/sounds.json",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/fbab/ForerunnerBridgesAndBarriersMod.java",
+      "src/main/java/net/mcreator/fbab/network/ForerunnerBridgesAndBarriersModVariables.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/fbab/init/ForerunnerBridgesAndBarriersModSounds.java",
+      "src/main/java/net/mcreator/fbab/init/ForerunnerBridgesAndBarriersModTabs.java"
+    ]
   },
   "foldersRoot": {
     "name": "~",
@@ -958,22 +1301,20 @@
   "workspaceSettings": {
     "modid": "forerunner_bridges_and_barriers",
     "modName": "Forerunner Bridges and Barriers",
-    "version": "1.2.1",
-    "description": "Puentes y barreras de luz dura como la tecnología forerunner de Halo",
+    "version": "2.0.0",
+    "description": "Halo-inspired hard light bridges, barriers and long-distance redstone.\nPuentes y barreras de luz dura inspirados en Halo, y redstone a larga distancia.\n\nBy / Por: Arturo Enrique Rosas Gutiérrez (AEROGU)\nAll rights reserved. / Todos los derechos reservados.",
     "author": "Arturo Enrique Rosas Gutiérrez (RGMods)",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://github.com/AEROGU/Forerunner-Tech",
     "license": "All Rights Reserved",
-    "disableForgeVersionCheck": true,
     "serverSideOnly": false,
     "modPicture": "el_manto",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.19.2",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
-    "modElementsPackage": "net.mcreator.fbab",
-    "lockBaseModFiles": false
+    "currentGenerator": "neoforge-26.1.2",
+    "credits": "Arturo Enrique Rosas Gutiérrez (AEROGU). Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.fbab"
   },
-  "mcreatorVersion": 202200348217
+  "mcreatorVersion": 202600233518
 }

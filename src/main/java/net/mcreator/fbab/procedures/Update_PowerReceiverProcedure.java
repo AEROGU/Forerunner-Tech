@@ -9,30 +9,27 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
 
-import java.util.Map;
-
 public class Update_PowerReceiverProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		boolean fulfilled = false;
 		BlockState curBlock = Blocks.AIR.defaultBlockState();
 		BlockState thisBlock = Blocks.AIR.defaultBlockState();
 		fulfilled = false;
-		thisBlock = (world.getBlockState(new BlockPos(x, y, z)));
+		thisBlock = (world.getBlockState(BlockPos.containing(x, y, z)));
 		for (Direction directioniterator : Direction.values()) {
-			curBlock = (world.getBlockState(
-					new BlockPos(x + directioniterator.getStepX(), y + directioniterator.getStepY(), z + directioniterator.getStepZ())));
+			curBlock = (world.getBlockState(BlockPos.containing(x + directioniterator.getStepX(), y + directioniterator.getStepY(), z + directioniterator.getStepZ())));
 			if (curBlock.getBlock() == ForerunnerBridgesAndBarriersModBlocks.LIGHT_WIRE.get()) {
 				fulfilled = true;
 				if (thisBlock.getBlock() == ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER.get()) {
 					{
-						BlockPos _bp = new BlockPos(x, y, z);
+						BlockPos _bp = BlockPos.containing(x, y, z);
 						BlockState _bs = ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER_ON.get().defaultBlockState();
 						BlockState _bso = world.getBlockState(_bp);
-						for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-							Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-							if (_property != null && _bs.getValue(_property) != null)
+						for (Property<?> _propertyOld : _bso.getProperties()) {
+							Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+							if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 								try {
-									_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+									_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 								} catch (Exception e) {
 								}
 						}
@@ -45,14 +42,14 @@ public class Update_PowerReceiverProcedure {
 		if (!fulfilled) {
 			if (thisBlock.getBlock() == ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER_ON.get()) {
 				{
-					BlockPos _bp = new BlockPos(x, y, z);
+					BlockPos _bp = BlockPos.containing(x, y, z);
 					BlockState _bs = ForerunnerBridgesAndBarriersModBlocks.POWER_RECEIVER.get().defaultBlockState();
 					BlockState _bso = world.getBlockState(_bp);
-					for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-						Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-						if (_property != null && _bs.getValue(_property) != null)
+					for (Property<?> _propertyOld : _bso.getProperties()) {
+						Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+						if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 							try {
-								_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+								_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 							} catch (Exception e) {
 							}
 					}

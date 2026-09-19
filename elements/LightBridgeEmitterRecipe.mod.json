@@ -1,45 +1,28 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
-    "xpReward": 0.0,
-    "cookingTime": 200,
     "recipeRetstackSize": 4,
     "group": "light_bridge_emitter",
+    "unlockingItems": [],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Items.REDSTONE"
-      },
-      {
-        "value": "Items.AMETHYST_SHARD"
-      },
-      {
-        "value": "Items.REDSTONE"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.DIAMOND"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Blocks.GLOWSTONE"
-      },
-      {
-        "value": "Items.REPEATER"
-      }
+      "Items.REDSTONE",
+      "Items.AMETHYST_SHARD",
+      "Items.REDSTONE",
+      "Items.IRON_INGOT",
+      "Items.DIAMOND",
+      "Items.IRON_INGOT",
+      "Items.REPEATER",
+      "Blocks.GLOWSTONE",
+      "Items.REPEATER"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:LightBridgeEmitter"
-    },
+    "recipeReturnStack": "CUSTOM:LightBridgeEmitter",
     "name": "light_brisge_emitter",
     "namespace": "mod"
   }

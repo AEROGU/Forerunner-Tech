@@ -14,7 +14,7 @@ public class LightFluidBarrierEmitterOnRedstoneEventProcedure {
 		BlockState emitterBlockOff = Blocks.AIR.defaultBlockState();
 		emitterBlock = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER_ON.get().defaultBlockState();
 		emitterBlockOff = ForerunnerBridgesAndBarriersModBlocks.LIGHT_FLUID_BARRIER_EMITTER.get().defaultBlockState();
-		block = (world.getBlockState(new BlockPos(x, y, z)));
+		block = (world.getBlockState(BlockPos.containing(x, y, z)));
 		OnEmitterRedstoneEventProcedure.execute(world, x, y, z, emitterBlock, emitterBlockOff);
 	}
 }

@@ -1,45 +1,28 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "recipe",
   "definition": {
     "recipeType": "Crafting",
-    "xpReward": 0.0,
-    "cookingTime": 200,
     "recipeRetstackSize": 2,
     "group": "",
+    "unlockingItems": [],
+    "cookingBookCategory": "MISC",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "craftingBookCategory": "MISC",
     "recipeShapeless": false,
     "recipeSlots": [
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Blocks.DAYLIGHT_DETECTOR"
-      },
-      {
-        "value": "Items.IRON_INGOT"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Items.COMPARATOR"
-      },
-      {
-        "value": "Items.REPEATER"
-      },
-      {
-        "value": "Items.GOLD_INGOT"
-      },
-      {
-        "value": "Blocks.DAYLIGHT_DETECTOR"
-      },
-      {
-        "value": "Items.GOLD_INGOT"
-      }
+      "Items.IRON_INGOT",
+      "Blocks.DAYLIGHT_DETECTOR",
+      "Items.IRON_INGOT",
+      "Items.REPEATER",
+      "Items.COMPARATOR",
+      "Items.REPEATER",
+      "Items.GOLD_INGOT",
+      "Blocks.DAYLIGHT_DETECTOR",
+      "Items.GOLD_INGOT"
     ],
-    "recipeReturnStack": {
-      "value": "CUSTOM:PowerReceiver"
-    },
+    "recipeReturnStack": "CUSTOM:PowerReceiver",
     "name": "power_receiver_recipe",
     "namespace": "mod"
   }

@@ -1,5 +1,5 @@
 {
-  "_fv": 34,
+  "_fv": 89,
   "_type": "block",
   "definition": {
     "texture": "forerunner_metal_hd",
@@ -14,8 +14,12 @@
     "enablePitch": false,
     "emissiveRendering": true,
     "displayFluidOverlay": false,
+    "states": [],
+    "animations": [],
     "itemTexture": "",
     "particleTexture": "",
+    "blockSetType": "OAK",
+    "leavesParticleChance": 0.0,
     "tintType": "No tint",
     "isItemTinted": false,
     "hasTransparency": true,
@@ -42,29 +46,32 @@
         "subtract": false
       }
     ],
+    "customProperties": [],
     "name": "Hard light bridge emitter: Activated",
-    "specialInfo": [],
+    "specialInformation": {
+      "fixedValue": []
+    },
     "hardness": 55.0,
     "resistance": 55.0,
     "hasGravity": false,
     "isWaterloggable": true,
-    "creativeTab": {
-      "value": "No creative tab entry"
-    },
+    "hasBlockItem": true,
+    "maxStackSize": 64,
+    "rarity": "COMMON",
+    "immuneToFire": false,
+    "creativeTabs": [],
     "destroyTool": "Not specified",
-    "customDrop": {
-      "value": ""
-    },
+    "customDrop": "",
     "dropAmount": 0,
+    "xpAmountMin": 0,
+    "xpAmountMax": 0,
     "useLootTableForDrops": false,
     "requiresCorrectTool": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canRedstoneConnect": true,
+    "hasCustomOpacity": true,
     "lightOpacity": 0,
-    "material": {
-      "value": "IRON"
-    },
     "tickRate": 0,
     "tickRandomly": false,
     "isReplaceable": false,
@@ -73,11 +80,11 @@
       "fixedValue": 15.0
     },
     "colorOnMap": "DEFAULT",
-    "creativePickItem": {
-      "value": "CUSTOM:LightBridgeEmitter"
-    },
+    "noteBlockInstrument": "harp",
+    "creativePickItem": "CUSTOM:LightBridgeEmitter",
     "offsetType": "NONE",
     "aiPathNodeType": "WALKABLE",
+    "ignitedByLava": false,
     "flammability": 0,
     "fireSpreadSpeed": 0,
     "isLadder": false,
@@ -86,37 +93,22 @@
     "jumpFactor": 1.0,
     "reactionToPushing": "BLOCK",
     "isNotColidable": false,
+    "soundOnStep": "METAL",
     "isCustomSoundType": false,
-    "soundOnStep": {
-      "value": "METAL"
+    "breakSound": "",
+    "fallSound": "",
+    "hitSound": "",
+    "placeSound": "",
+    "stepSound": "",
+    "luminance": {
+      "fixedValue": 14.0
     },
-    "breakSound": {
-      "value": ""
-    },
-    "fallSound": {
-      "value": ""
-    },
-    "hitSound": {
-      "value": ""
-    },
-    "placeSound": {
-      "value": ""
-    },
-    "stepSound": {
-      "value": ""
-    },
-    "luminance": 14,
     "unbreakable": false,
-    "breakHarvestLevel": 4,
-    "spawnParticles": true,
-    "particleToSpawn": {
-      "value": "ELECTRIC_SPARK"
-    },
-    "particleSpawningShape": "Spread",
-    "particleSpawningRadious": 0.5,
-    "particleAmount": 2,
+    "vanillaToolTier": "DIAMOND",
+    "isBonemealable": false,
+    "sensitiveToVibration": false,
+    "vibrationalEvents": [],
     "hasInventory": false,
-    "guiBoundTo": "<NONE>",
     "openGUIOnRightClick": false,
     "inventorySize": 9,
     "inventoryStackSize": 64,
@@ -132,24 +124,17 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onBlockAdded": {
-      "name": "LightBridgeEmitterOnBlockUpdate"
-    },
-    "onNeighbourBlockChanges": {
-      "name": "LightBridgeEmitterOnBlockUpdate"
-    },
-    "onDestroyedByPlayer": {
-      "name": "OnEmitterOnDestroyed"
-    },
-    "onRedstoneOff": {
-      "name": "LightBridgeEmitterOnRedstoneEvent"
-    },
-    "spawnWorldTypes": [],
+    "onBlockAdded": "LightBridgeEmitterOnBlockUpdate",
+    "onNeighbourBlockChanges": "LightBridgeEmitterOnBlockUpdate",
+    "onDestroyedByPlayer": "OnEmitterOnDestroyed",
+    "onRedstoneOff": "LightBridgeEmitterOnRedstoneEvent",
+    "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [
-      {
-        "value": "Blocks.STONE"
-      }
+      "Blocks.STONE#0",
+      "Blocks.STONE#1",
+      "Blocks.STONE#3",
+      "Blocks.STONE#5"
     ],
     "generationShape": "UNIFORM",
     "frequencyPerChunks": 10,

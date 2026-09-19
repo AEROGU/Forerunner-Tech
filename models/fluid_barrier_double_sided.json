@@ -1,0 +1,184 @@
+{
+  "credit": "Forerunner Tech - Soft light barrier de doble cara",
+  "parent": "minecraft:block/block",
+  "textures": {
+    "0": "forerunner_bridges_and_barriers:block/light_section_animated",
+    "1": "forerunner_bridges_and_barriers:block/light_section_down_animated",
+    "2": "forerunner_bridges_and_barriers:block/light_section_left_animated",
+    "3": "forerunner_bridges_and_barriers:block/light_section_right_animated",
+    "4": "forerunner_bridges_and_barriers:block/lightsectionbasecolor",
+    "particle": "forerunner_bridges_and_barriers:block/light_section_down_animated"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#4",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#4",
+          "cullface": "south"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#3",
+          "cullface": "east"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#2",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#0",
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#1",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "from": [
+        0.1,
+        0.1,
+        0
+      ],
+      "to": [
+        0.1,
+        15.9,
+        16
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#2",
+          "cullface": "west"
+        }
+      }
+    },
+    {
+      "from": [
+        15.9,
+        0.1,
+        0
+      ],
+      "to": [
+        15.9,
+        15.9,
+        16
+      ],
+      "faces": {
+        "west": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#3",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0.1,
+        15.9,
+        0
+      ],
+      "to": [
+        15.9,
+        15.9,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#0",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "from": [
+        0.1,
+        0.1,
+        0
+      ],
+      "to": [
+        15.9,
+        0.1,
+        16
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            16,
+            16,
+            0
+          ],
+          "texture": "#1",
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}

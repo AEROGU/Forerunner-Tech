@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "forerunner_bridges_and_barriers:blocks/redstone_wire_block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "forerunner_bridges_and_barriers:redstone_wire_block"
+        }
+      ]
+    }
+  ]
+}

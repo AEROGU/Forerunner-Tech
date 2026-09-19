@@ -1,29 +1,26 @@
 package net.mcreator.fbab.procedures;
 
-import net.minecraftforge.registries.ForgeRegistries;
-
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
-
-import java.util.Map;
 
 public class OnEmitterRedstoneEventProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, BlockState emitterBlock, BlockState emitterBlockOff) {
-		if (world instanceof Level _lvl_isPow ? _lvl_isPow.hasNeighborSignal(new BlockPos(x, y, z)) : false) {
+		if (world instanceof Level _level0 && _level0.hasNeighborSignal(BlockPos.containing(x, y, z))) {
 			{
-				BlockPos _bp = new BlockPos(x, y, z);
-				BlockState _bs = (emitterBlock);
+				BlockPos _bp = BlockPos.containing(x, y, z);
+				BlockState _bs = emitterBlock;
 				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-					if (_property != null && _bs.getValue(_property) != null)
+				for (Property<?> _propertyOld : _bso.getProperties()) {
+					Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+					if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 						try {
-							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+							_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 						} catch (Exception e) {
 						}
 				}
@@ -31,25 +28,21 @@ public class OnEmitterRedstoneEventProcedure {
 			}
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, new BlockPos(x, y, z),
-							ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("forerunner_bridges_and_barriers:energy_bridge_activation")),
-							SoundSource.BLOCKS, 1, 80);
+					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("forerunner_bridges_and_barriers:energy_bridge_activation")), SoundSource.BLOCKS, 1, 80);
 				} else {
-					_level.playLocalSound(x, y, z,
-							ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("forerunner_bridges_and_barriers:energy_bridge_activation")),
-							SoundSource.BLOCKS, 1, 80, false);
+					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("forerunner_bridges_and_barriers:energy_bridge_activation")), SoundSource.BLOCKS, 1, 80, false);
 				}
 			}
 		} else {
 			{
-				BlockPos _bp = new BlockPos(x, y, z);
-				BlockState _bs = (emitterBlockOff);
+				BlockPos _bp = BlockPos.containing(x, y, z);
+				BlockState _bs = emitterBlockOff;
 				BlockState _bso = world.getBlockState(_bp);
-				for (Map.Entry<Property<?>, Comparable<?>> entry : _bso.getValues().entrySet()) {
-					Property _property = _bs.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-					if (_property != null && _bs.getValue(_property) != null)
+				for (Property<?> _propertyOld : _bso.getProperties()) {
+					Property _propertyNew = _bs.getBlock().getStateDefinition().getProperty(_propertyOld.getName());
+					if (_propertyNew != null && _bs.getValue(_propertyNew) != null)
 						try {
-							_bs = _bs.setValue(_property, (Comparable) entry.getValue());
+							_bs = _bs.setValue(_propertyNew, _bso.getValue(_propertyOld));
 						} catch (Exception e) {
 						}
 				}
@@ -57,13 +50,9 @@ public class OnEmitterRedstoneEventProcedure {
 			}
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, new BlockPos(x, y, z),
-							ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("forerunner_bridges_and_barriers:energy_bridge_deactivation")),
-							SoundSource.BLOCKS, 1, 80);
+					_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("forerunner_bridges_and_barriers:energy_bridge_deactivation")), SoundSource.BLOCKS, 1, 80);
 				} else {
-					_level.playLocalSound(x, y, z,
-							ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("forerunner_bridges_and_barriers:energy_bridge_deactivation")),
-							SoundSource.BLOCKS, 1, 80, false);
+					_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("forerunner_bridges_and_barriers:energy_bridge_deactivation")), SoundSource.BLOCKS, 1, 80, false);
 				}
 			}
 		}

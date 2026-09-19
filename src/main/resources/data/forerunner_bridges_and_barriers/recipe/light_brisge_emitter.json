@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "light_bridge_emitter",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "efe"
+  ],
+  "key": {
+    "a": "minecraft:redstone",
+    "b": "minecraft:amethyst_shard",
+    "c": "minecraft:iron_ingot",
+    "d": "minecraft:diamond",
+    "e": "minecraft:repeater",
+    "f": "minecraft:glowstone"
+  },
+  "result": {
+    "id": "forerunner_bridges_and_barriers:light_bridge_emitter",
+    "count": 4
+  }
+}

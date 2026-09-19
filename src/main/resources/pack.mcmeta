@@ -1,8 +1,7 @@
 {
   "pack": {
-    "description": "forerunner_bridges_and_barriers mod resources",
-    "pack_format": 9,
-    "forge:resource_pack_format": 9,
-    "forge:data_pack_format": 10
+    "min_format": 101.1,
+    "max_format": 101.1,
+    "description": "Halo-inspired hard light bridges, barriers and long-distance redstone.\nPuentes y barreras de luz dura inspirados en Halo, y redstone a larga distancia.\n\nBy / Por: Arturo Enrique Rosas Gutiérrez (AEROGU)\nAll rights reserved. / Todos los derechos reservados."
   }
 }
