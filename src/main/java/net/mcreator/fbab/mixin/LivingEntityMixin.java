@@ -39,8 +39,9 @@ public abstract class LivingEntityMixin {
 	public void startUsingItem(InteractionHand hand, CallbackInfo ci) {
 		LivingEntity entity = (LivingEntity) (Object) this;
 		ItemStack stack = entity.getItemInHand(hand);
-		if (!stack.isEmpty() && !entity.isUsingItem())
+		if (!stack.isEmpty() && !entity.isUsingItem()) {
 			LivingEntityEvents.START_USE_ITEM.invoker().onStartUseItem(entity, stack);
+		}
 	}
 
 	@Inject(method = "heal(F)V", at = @At("HEAD"), cancellable = true)

@@ -1329,7 +1329,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "fabric-26.1.2",
+    "currentGenerator": "fabric-26.2",
     "credits": "Arturo Enrique Rosas Gutiérrez (AEROGU). Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.fbab"
   },

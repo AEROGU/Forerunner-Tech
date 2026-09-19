@@ -17,14 +17,15 @@ import com.google.common.collect.Lists;
 public abstract class RepairItemRecipeMixin {
 	@Inject(method = "assemble(Lnet/minecraft/world/item/crafting/CraftingInput;)Lnet/minecraft/world/item/ItemStack;", at = @At("HEAD"))
 	public void assemble(CraftingInput input, CallbackInfoReturnable<ItemStack> cir) {
-		ItemStack itemStack, itemStack3;
+		ItemStack itemStack3;
+		ItemStack itemStack;
 		ArrayList<ItemStack> list = Lists.newArrayList();
 		for (int i = 0; i < input.ingredientCount(); ++i) {
+			ItemStack itemStack2;
 			itemStack = input.getItem(i);
 			if (itemStack.isEmpty())
 				continue;
 			list.add(itemStack);
 		}
-		itemStack3 = list.get(0);
 	}
 }

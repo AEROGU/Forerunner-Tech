@@ -26,7 +26,7 @@ public class FluidBarrierBlock extends Block {
 	public static final IntegerProperty LIGHTPOWER = IntegerProperty.create("lightpower", 0, 40);
 
 	public FluidBarrierBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.AMETHYST).strength(-1, 3600000).lightLevel(blockstate -> 12).noCollision().forceSolidOn().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true)); // CUSTOM: forceSolidOn() para que los fluidos no atraviesen ni destruyan la barrera
+		super(properties.sound(SoundType.AMETHYST).strength(-1, 3600000).lightLevel(blockstate -> 12).noCollision().forceSolidOn().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true)); // CUSTOM: forceSolidOn() para que los fluidos no atraviesen ni destruyan la barrera
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIGHTPOWER, 1));
 	}
 

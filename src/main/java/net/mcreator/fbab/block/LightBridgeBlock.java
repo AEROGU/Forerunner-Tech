@@ -38,8 +38,8 @@ public class LightBridgeBlock extends Block implements SimpleWaterloggedBlock {
 	private final Function<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public LightBridgeBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.GLASS).strength(-1, 3600000).lightLevel(blockstate -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true)
-				.isRedstoneConductor((bs, br, bp) -> false).instrument(NoteBlockInstrument.HAT));
+		super(properties.sound(SoundType.GLASS).strength(-1, 3600000).lightLevel(blockstate -> 12).noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true).isRedstoneConductor((bs, br, bp) -> false)
+				.instrument(NoteBlockInstrument.HAT));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIGHTPOWER, 1).setValue(WATERLOGGED, false));
 	}
 

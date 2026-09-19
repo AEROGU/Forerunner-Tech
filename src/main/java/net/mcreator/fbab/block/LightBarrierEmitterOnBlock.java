@@ -38,7 +38,7 @@ public class LightBarrierEmitterOnBlock extends Block implements SimpleWaterlogg
 	private final Function<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public LightBarrierEmitterOnBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.METAL).strength(55f).lightLevel(blockstate -> 14).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true)
+		super(properties.sound(SoundType.METAL).strength(55f).lightLevel(blockstate -> 14).requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true)
 				.isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}

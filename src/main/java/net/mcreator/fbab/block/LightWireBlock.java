@@ -45,7 +45,7 @@ public class LightWireBlock extends Block implements SimpleWaterloggedBlock {
 	private final Function<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public LightWireBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.AMETHYST_CLUSTER).strength(1000f, 10f).lightLevel(blockstate -> 15).noCollision().pushReaction(PushReaction.DESTROY).postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true)
+		super(properties.sound(SoundType.AMETHYST_CLUSTER).strength(1000f, 10f).lightLevel(blockstate -> 15).noCollision().pushReaction(PushReaction.DESTROY).postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true)
 				.isRedstoneConductor((bs, br, bp) -> false).replaceable());
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIGHTPOWER, 1).setValue(WATERLOGGED, false));
 	}

@@ -38,8 +38,7 @@ public class LightBridgeEmitterONBlock extends Block implements SimpleWaterlogge
 	private final Function<BlockState, VoxelShape> shapes = this.makeShapes();
 
 	public LightBridgeEmitterONBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.METAL).strength(55f).lightLevel(blockstate -> 14).noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true)
-				.isRedstoneConductor((bs, br, bp) -> false));
+		super(properties.sound(SoundType.METAL).strength(55f).lightLevel(blockstate -> 14).noOcclusion().pushReaction(PushReaction.BLOCK).postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true).isRedstoneConductor((bs, br, bp) -> false));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 

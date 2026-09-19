@@ -19,7 +19,7 @@ import net.mcreator.fbab.init.ForerunnerBridgesAndBarriersModBlocks;
 
 public class PowerReceiverONBlock extends Block {
 	public PowerReceiverONBlock(BlockBehaviour.Properties properties) {
-		super(properties.sound(SoundType.METAL).strength(5f, 10f).lightLevel(blockstate -> 14).requiresCorrectToolForDrops().postProcess((bs, br, bp) -> bp).emissiveRendering((bs, br, bp) -> true));
+		super(properties.sound(SoundType.METAL).strength(5f, 10f).lightLevel(blockstate -> 14).requiresCorrectToolForDrops().postProcess((bs, br, bp) -> bp).emissiveRendering(bs -> true));
 	}
 
 	@Override
